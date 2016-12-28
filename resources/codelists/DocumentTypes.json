@@ -1,0 +1,88 @@
+{
+  "DocumentTypes": [
+    {
+      "Code": "105",
+      "Description": "Purchase order"
+    },
+    {
+      "Code": "220",
+      "Description": "Order"
+    },
+    {
+      "Code": "223",
+      "Description": "Lease order"
+    },
+    {
+      "Code": "224",
+      "Description": "Rush order"
+    },
+    {
+      "Code": "245",
+      "Description": "Delivery release"
+    },
+    {
+      "Code": "315",
+      "Description": "Contract"
+    },
+    {
+      "Code": "320",
+      "Description": "Acknowledgement of order"
+    },
+    {
+      "Code": "325",
+      "Description": "Proforma invoice"
+    },
+    {
+      "Code": "326",
+      "Description": "Partial invoice"
+    },
+    {
+      "Code": "380",
+      "Description": "Commercial invoice"
+    },
+    {
+      "Code": "389",
+      "Description": "Self-billed invoice"
+    },
+    {
+      "Code": "393",
+      "Description": "Factored invoice"
+    },
+    {
+      "Code": "394",
+      "Description": "Lease invoice"
+    },
+    {
+      "Code": "395",
+      "Description": "Consignment invoice"
+    },
+    {
+      "Code": "398",
+      "Description": "Cross docking despatch advice"
+    },
+    {
+      "Code": "399",
+      "Description": "Transshipment despatch advice"
+    },
+    {
+      "Code": "455",
+      "Description": "Extended credit advice"
+    },
+    {
+      "Code": "481",
+      "Description": "Remittance advice"
+    },
+    {
+      "Code": "533",
+      "Description": "Original accounting voucher"
+    },
+    {
+      "Code": "534",
+      "Description": "Copy accounting voucher"
+    },
+    {
+      "Code": "640",
+      "Description": "Delivery order"
+    }
+  ]
+}

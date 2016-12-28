@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  if errorMessage
+    p.red #{errorMessage}
+  p Upload a files
+  form#fileUpload(name="fileUpload", method="POST", action="/upload?type=json", enctype="multipart/form-data")
+    input#userInputNum(type="file", name="sampleFile", placeholder="File")
+    button(type="submit") Process
+  p or choose from the set
+  form#selectFile(name="selectFile", method="POST", action="/upload?type=json", enctype="multipart/form-data")
+    select(name="xmlFile")
+      each item in jsonFiles
+        option(value=item) #{item}
+    button(type="submit") Select

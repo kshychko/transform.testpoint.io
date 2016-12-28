@@ -1,0 +1,284 @@
+{
+  "PaymentMeans": [
+    {
+      "Code": "1",
+      "Description": "Instrument not defined"
+    },
+    {
+      "Code": "2",
+      "Description": "Automated clearing house credit"
+    },
+    {
+      "Code": "3",
+      "Description": "Automated clearing house debit"
+    },
+    {
+      "Code": "4",
+      "Description": "ACH demand debit reversal"
+    },
+    {
+      "Code": "5",
+      "Description": "ACH demand credit reversal"
+    },
+    {
+      "Code": "6",
+      "Description": "ACH demand credit"
+    },
+    {
+      "Code": "7",
+      "Description": "ACH demand debit"
+    },
+    {
+      "Code": "8",
+      "Description": "Hold"
+    },
+    {
+      "Code": "9",
+      "Description": "National or regional clearing"
+    },
+    {
+      "Code": "10",
+      "Description": "cash"
+    },
+    {
+      "Code": "11",
+      "Description": "savings credit reversal"
+    },
+    {
+      "Code": "12",
+      "Description": "savings debit reversal"
+    },
+    {
+      "Code": "13",
+      "Description": "savings credit"
+    },
+    {
+      "Code": "14",
+      "Description": "savings debit"
+    },
+    {
+      "Code": "15",
+      "Description": "Bookentry credit"
+    },
+    {
+      "Code": "16",
+      "Description": "Bookentry debit"
+    },
+    {
+      "Code": "17",
+      "Description": "demand cash concentration/disbursement (CCD) credit"
+    },
+    {
+      "Code": "18",
+      "Description": "demand cash concentration/disbursement (CCD) debit"
+    },
+    {
+      "Code": "19",
+      "Description": "demand corporate trade payment (CTP) credit"
+    },
+    {
+      "Code": "20",
+      "Description": "Cheque"
+    },
+    {
+      "Code": "21",
+      "Description": "Banker's draft"
+    },
+    {
+      "Code": "22",
+      "Description": "Certified banker's draft"
+    },
+    {
+      "Code": "23",
+      "Description": "Bank cheque (issued by a banking or similar establishment)"
+    },
+    {
+      "Code": "24",
+      "Description": "Bill of exchange awaiting acceptance"
+    },
+    {
+      "Code": "25",
+      "Description": "Certified cheque"
+    },
+    {
+      "Code": "26",
+      "Description": "Local cheque"
+    },
+    {
+      "Code": "27",
+      "Description": "demand corporate trade payment (CTP) debit"
+    },
+    {
+      "Code": "28",
+      "Description": "demand corporate trade exchange (CTX) credit"
+    },
+    {
+      "Code": "29",
+      "Description": "demand corporate trade exchange (CTX) debit"
+    },
+    {
+      "Code": "30",
+      "Description": "Credit transfer"
+    },
+    {
+      "Code": "31",
+      "Description": "Debit transfer"
+    },
+    {
+      "Code": "32",
+      "Description": "demand cash concentration/disbursement plus (CCD+) credit"
+    },
+    {
+      "Code": "33",
+      "Description": "demand cash concentration/disbursement plus (CCD+) debit"
+    },
+    {
+      "Code": "34",
+      "Description": "prearranged payment and deposit (PPD)"
+    },
+    {
+      "Code": "35",
+      "Description": "savings cash concentration/disbursement (CCD) credit"
+    },
+    {
+      "Code": "36",
+      "Description": "savings cash concentration/disbursement (CCD) debit"
+    },
+    {
+      "Code": "37",
+      "Description": "savings corporate trade payment (CTP) credit"
+    },
+    {
+      "Code": "38",
+      "Description": "savings corporate trade payment (CTP) debit"
+    },
+    {
+      "Code": "39",
+      "Description": "savings corporate trade exchange (CTX) credit"
+    },
+    {
+      "Code": "40",
+      "Description": "savings corporate trade exchange (CTX) debit"
+    },
+    {
+      "Code": "41",
+      "Description": "savings cash concentration/disbursement plus (CCD+) credit"
+    },
+    {
+      "Code": "42",
+      "Description": "Payment to bank account"
+    },
+    {
+      "Code": "43",
+      "Description": "savings cash concentration/disbursement plus (CCD+) debit"
+    },
+    {
+      "Code": "44",
+      "Description": "Accepted bill of exchange"
+    },
+    {
+      "Code": "45",
+      "Description": "Referenced home-banking credit transfer"
+    },
+    {
+      "Code": "46",
+      "Description": "Interbank debit transfer"
+    },
+    {
+      "Code": "47",
+      "Description": "Home-banking debit transfer"
+    },
+    {
+      "Code": "48",
+      "Description": "Bank card"
+    },
+    {
+      "Code": "49",
+      "Description": "Direct debit"
+    },
+    {
+      "Code": "52",
+      "Description": "Urgent commercial payment"
+    },
+    {
+      "Code": "53",
+      "Description": "Urgent Treasury Payment"
+    },
+    {
+      "Code": "60",
+      "Description": "Promissory note"
+    },
+    {
+      "Code": "61",
+      "Description": "Promissory note signed by the debtor"
+    },
+    {
+      "Code": "62",
+      "Description": "Promissory note signed by the debtor and endorsed by a bank"
+    },
+    {
+      "Code": "63",
+      "Description": "Promissory note signed by the debtor and endorsed by a third party"
+    },
+    {
+      "Code": "64",
+      "Description": "Promissory note signed by a bank"
+    },
+    {
+      "Code": "65",
+      "Description": "Promissory note signed by a bank and endorsed by another bank"
+    },
+    {
+      "Code": "66",
+      "Description": "Promissory note signed by a third party"
+    },
+    {
+      "Code": "67",
+      "Description": "Promissory note signed by a third party and endorsed by a bank"
+    },
+    {
+      "Code": "70",
+      "Description": "Bill drawn by the creditor on the debtor"
+    },
+    {
+      "Code": "74",
+      "Description": "Bill drawn by the creditor on a bank"
+    },
+    {
+      "Code": "75",
+      "Description": "Bill drawn by the creditor, endorsed by another bank"
+    },
+    {
+      "Code": "76",
+      "Description": "Bill drawn by the creditor on a bank and endorsed by a third party"
+    },
+    {
+      "Code": "77",
+      "Description": "Bill drawn by the creditor on a third party"
+    },
+    {
+      "Code": "78",
+      "Description": "Bill drawn by creditor on third party, accepted and endorsed by bank"
+    },
+    {
+      "Code": "91",
+      "Description": "transferable banker's draft"
+    },
+    {
+      "Code": "92",
+      "Description": "transferable local cheque"
+    },
+    {
+      "Code": "96",
+      "Description": "Requested method for payment was not used"
+    },
+    {
+      "Code": "97",
+      "Description": "Clearing between partners"
+    },
+    {
+      "Code": "ZZZ",
+      "Description": "Mutually defined"
+    }
+  ]
+}

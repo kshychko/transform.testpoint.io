@@ -1,0 +1,3552 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2#",
+  "type": "object",
+  "properties": {
+    "Invoice": {
+      "$ref": "#/definitions/InvoiceType"
+    }
+  },
+  "required": [
+    "Invoice"
+  ],
+  "definitions": {
+    "TaxSubtotalType": {
+      "type": "object",
+      "title": "TaxSubtotalType",
+      "required": [
+        "taxAmount",
+        "taxCategory"
+      ],
+      "properties": {
+        "taxableAmount": {
+          "title": "taxableAmount",
+          "anyOf": [
+            {
+              "$ref": "#/definitions/AmountType"
+            },
+            {
+              "$ref": "http://www.jsonix.org/jsonschemas/w3c/2001/XMLSchema.jsonschema#/definitions/normalizedString"
+            }
+          ],
+          "propertyType": "element",
+          "elementName": {
+            "localPart": "TaxableAmount",
+            "namespaceURI": "urn:oasis:naames:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+          }
+        },
+        "taxAmount": {
+          "title": "taxAmount",
+          "anyOf": [
+            {
+              "$ref": "#/definitions/AmountType"
+            },
+            {
+              "$ref": "http://www.jsonix.org/jsonschemas/w3c/2001/XMLSchema.jsonschema#/definitions/normalizedString"
+            }
+          ],
+          "propertyType": "element",
+          "elementName": {
+            "localPart": "TaxAmount",
+            "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+          }
+        },
+        "taxCategory": {
+          "title": "taxCategory",
+          "allOf": [
+            {
+              "$ref": "#/definitions/TaxCategoryType"
+            }
+          ],
+          "propertyType": "element",
+          "elementName": {
+            "localPart": "TaxCategory",
+            "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+          }
+        }
+      },
+      "typeType": "classInfo",
+      "typeName": {
+        "localPart": "TaxSubtotalType",
+        "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+      },
+      "propertiesOrder": [
+        "taxableAmount",
+        "taxAmount",
+        "taxCategory"
+      ]
+    },
+    "AmountType": {
+      "type": "object",
+      "title": "AmountType",
+      "required": [
+        "currencyID"
+      ],
+      "properties": {
+        "value": {
+          "title": "value",
+          "allOf": [
+            {
+              "$ref": "http://www.jsonix.org/jsonschemas/w3c/2001/XMLSchema.jsonschema#/definitions/normalizedString"
+            }
+          ],
+          "propertyType": "value"
+        },
+        "currencyID": {
+          "title": "currencyID",
+          "allOf": [
+            {
+              "$ref": "http://www.jsonix.org/jsonschemas/w3c/2001/XMLSchema.jsonschema#/definitions/normalizedString"
+            }
+          ],
+          "propertyType": "attribute",
+          "attributeName": {
+            "localPart": "currencyID",
+            "namespaceURI": ""
+          }
+        },
+        "currencyCodeListVersionID": {
+          "title": "currencyCodeListVersionID",
+          "allOf": [
+            {
+              "$ref": "http://www.jsonix.org/jsonschemas/w3c/2001/XMLSchema.jsonschema#/definitions/normalizedString"
+            }
+          ],
+          "propertyType": "attribute",
+          "attributeName": {
+            "localPart": "currencyCodeListVersionID",
+            "namespaceURI": ""
+          }
+        }
+      },
+      "typeType": "classInfo",
+      "typeName": {
+        "localPart": "AmountType",
+        "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+      },
+      "propertiesOrder": [
+        "value",
+        "currencyID",
+        "currencyCodeListVersionID"
+      ]
+    },
+    "IdentifierType": {
+      "type": "object",
+      "title": "IdentifierType",
+      "properties": {
+        "value": {
+          "title": "value",
+          "allOf": [
+            {
+              "$ref": "http://www.jsonix.org/jsonschemas/w3c/2001/XMLSchema.jsonschema#/definitions/normalizedString"
+            }
+          ],
+          "propertyType": "value"
+        },
+        "schemeID": {
+          "title": "schemeID",
+          "allOf": [
+            {
+              "$ref": "http://www.jsonix.org/jsonschemas/w3c/2001/XMLSchema.jsonschema#/definitions/normalizedString"
+            }
+          ],
+          "propertyType": "attribute",
+          "attributeName": {
+            "localPart": "schemeID",
+            "namespaceURI": ""
+          }
+        },
+        "schemeName": {
+          "title": "schemeName",
+          "allOf": [
+            {
+              "$ref": "http://www.jsonix.org/jsonschemas/w3c/2001/XMLSchema.jsonschema#/definitions/string"
+            }
+          ],
+          "propertyType": "attribute",
+          "attributeName": {
+            "localPart": "schemeName",
+            "namespaceURI": ""
+          }
+        },
+        "schemeAgencyID": {
+          "title": "schemeAgencyID",
+          "allOf": [
+            {
+              "$ref": "http://www.jsonix.org/jsonschemas/w3c/2001/XMLSchema.jsonschema#/definitions/normalizedString"
+            }
+          ],
+          "propertyType": "attribute",
+          "attributeName": {
+            "localPart": "schemeAgencyID",
+            "namespaceURI": ""
+          }
+        },
+        "schemeAgencyName": {
+          "title": "schemeAgencyName",
+          "allOf": [
+            {
+              "$ref": "http://www.jsonix.org/jsonschemas/w3c/2001/XMLSchema.jsonschema#/definitions/string"
+            }
+          ],
+          "propertyType": "attribute",
+          "attributeName": {
+            "localPart": "schemeAgencyName",
+            "namespaceURI": ""
+          }
+        },
+        "schemeVersionID": {
+          "title": "schemeVersionID",
+          "allOf": [
+            {
+              "$ref": "http://www.jsonix.org/jsonschemas/w3c/2001/XMLSchema.jsonschema#/definitions/normalizedString"
+            }
+          ],
+          "propertyType": "attribute",
+          "attributeName": {
+            "localPart": "schemeVersionID",
+            "namespaceURI": ""
+          }
+        },
+        "schemeDataURI": {
+          "title": "schemeDataURI",
+          "allOf": [
+            {
+              "$ref": "http://www.jsonix.org/jsonschemas/w3c/2001/XMLSchema.jsonschema#/definitions/anyURI"
+            }
+          ],
+          "propertyType": "attribute",
+          "attributeName": {
+            "localPart": "schemeDataURI",
+            "namespaceURI": ""
+          }
+        },
+        "schemeURI": {
+          "title": "schemeURI",
+          "allOf": [
+            {
+              "$ref": "http://www.jsonix.org/jsonschemas/w3c/2001/XMLSchema.jsonschema#/definitions/anyURI"
+            }
+          ],
+          "propertyType": "attribute",
+          "attributeName": {
+            "localPart": "schemeURI",
+            "namespaceURI": ""
+          }
+        }
+      },
+      "typeType": "classInfo",
+      "typeName": {
+        "localPart": "IdentifierType",
+        "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+      },
+      "propertiesOrder": [
+        "value",
+        "schemeID",
+        "schemeName",
+        "schemeAgencyID",
+        "schemeAgencyName",
+        "schemeVersionID",
+        "schemeDataURI",
+        "schemeURI"
+      ]
+    },
+    "AttachmentType": {
+      "type": "object",
+      "title": "AttachmentType",
+      "properties": {
+        "embeddedDocumentBinaryObject": {
+          "title": "embeddedDocumentBinaryObject",
+          "allOf": [
+            {
+              "$ref": "#/definitions/BinaryObjectType"
+            }
+          ],
+          "propertyType": "element",
+          "elementName": {
+            "localPart": "EmbeddedDocumentBinaryObject",
+            "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+          }
+        },
+        "externalReference": {
+          "title": "externalReference",
+          "allOf": [
+            {
+              "$ref": "#/definitions/ExternalReferenceType"
+            }
+          ],
+          "propertyType": "element",
+          "elementName": {
+            "localPart": "ExternalReference",
+            "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+          }
+        }
+      },
+      "typeType": "classInfo",
+      "typeName": {
+        "localPart": "AttachmentType",
+        "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+      },
+      "propertiesOrder": [
+        "embeddedDocumentBinaryObject",
+        "externalReference"
+      ]
+    },
+    "AddressLineType": {
+      "type": "object",
+      "title": "AddressLineType",
+      "required": [
+        "line"
+      ],
+      "properties": {
+        "line": {
+          "title": "line",
+          "anyOf": [
+            {
+              "$ref": "#/definitions/TextType"
+            },
+            {
+              "$ref": "http://www.jsonix.org/jsonschemas/w3c/2001/XMLSchema.jsonschema#/definitions/normalizedString"
+            }
+          ],
+          "propertyType": "element",
+          "elementName": {
+            "localPart": "Line",
+            "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+          }
+        }
+      },
+      "typeType": "classInfo",
+      "typeName": {
+        "localPart": "AddressLineType",
+        "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+      },
+      "propertiesOrder": [
+        "line"
+      ]
+    },
+    "PartyNameType": {
+      "type": "object",
+      "title": "PartyNameType",
+      "required": [
+        "name"
+      ],
+      "properties": {
+        "name": {
+          "title": "name",
+          "anyOf": [
+            {
+              "$ref": "#/definitions/TextType"
+            },
+            {
+              "$ref": "http://www.jsonix.org/jsonschemas/w3c/2001/XMLSchema.jsonschema#/definitions/normalizedString"
+            }
+          ],
+          "propertyType": "element",
+          "elementName": {
+            "localPart": "Name",
+            "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+          }
+        }
+      },
+      "typeType": "classInfo",
+      "typeName": {
+        "localPart": "PartyNameType",
+        "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+      },
+      "propertiesOrder": [
+        "name"
+      ]
+    },
+    "FinancialAccountType": {
+      "type": "object",
+      "title": "FinancialAccountType",
+      "properties": {
+        "id": {
+          "title": "id",
+          "anyOf": [
+            {
+              "$ref": "#/definitions/IdentifierType"
+            },
+            {
+              "$ref": "http://www.jsonix.org/jsonschemas/w3c/2001/XMLSchema.jsonschema#/definitions/normalizedString"
+            }
+          ],
+          "propertyType": "element",
+          "elementName": {
+            "localPart": "ID",
+            "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+          }
+        },
+        "financialInstitutionBranch": {
+          "title": "financialInstitutionBranch",
+          "allOf": [
+            {
+              "$ref": "#/definitions/BranchType"
+            }
+          ],
+          "propertyType": "element",
+          "elementName": {
+            "localPart": "FinancialInstitutionBranch",
+            "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+          }
+        }
+      },
+      "typeType": "classInfo",
+      "typeName": {
+        "localPart": "FinancialAccountType",
+        "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+      },
+      "propertiesOrder": [
+        "id",
+        "financialInstitutionBranch"
+      ]
+    },
+    "QuantityType": {
+      "type": "object",
+      "title": "QuantityType",
+      "properties": {
+        "value": {
+          "title": "value",
+          "allOf": [
+            {
+              "$ref": "http://www.jsonix.org/jsonschemas/w3c/2001/XMLSchema.jsonschema#/definitions/decimal"
+            }
+          ],
+          "propertyType": "value"
+        },
+        "unitCode": {
+          "title": "unitCode",
+          "allOf": [
+            {
+              "$ref": "http://www.jsonix.org/jsonschemas/w3c/2001/XMLSchema.jsonschema#/definitions/normalizedString"
+            }
+          ],
+          "propertyType": "attribute",
+          "attributeName": {
+            "localPart": "unitCode",
+            "namespaceURI": ""
+          }
+        },
+        "unitCodeListID": {
+          "title": "unitCodeListID",
+          "allOf": [
+            {
+              "$ref": "http://www.jsonix.org/jsonschemas/w3c/2001/XMLSchema.jsonschema#/definitions/normalizedString"
+            }
+          ],
+          "propertyType": "attribute",
+          "attributeName": {
+            "localPart": "unitCodeListID",
+            "namespaceURI": ""
+          }
+        },
+        "unitCodeListAgencyID": {
+          "title": "unitCodeListAgencyID",
+          "allOf": [
+            {
+              "$ref": "http://www.jsonix.org/jsonschemas/w3c/2001/XMLSchema.jsonschema#/definitions/normalizedString"
+            }
+          ],
+          "propertyType": "attribute",
+          "attributeName": {
+            "localPart": "unitCodeListAgencyID",
+            "namespaceURI": ""
+          }
+        },
+        "unitCodeListAgencyName": {
+          "title": "unitCodeListAgencyName",
+          "allOf": [
+            {
+              "$ref": "http://www.jsonix.org/jsonschemas/w3c/2001/XMLSchema.jsonschema#/definitions/string"
+            }
+          ],
+          "propertyType": "attribute",
+          "attributeName": {
+            "localPart": "unitCodeListAgencyName",
+            "namespaceURI": ""
+          }
+        }
+      },
+      "typeType": "classInfo",
+      "typeName": {
+        "localPart": "QuantityType",
+        "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+      },
+      "propertiesOrder": [
+        "value",
+        "unitCode",
+        "unitCodeListID",
+        "unitCodeListAgencyID",
+        "unitCodeListAgencyName"
+      ]
+    },
+    "PriceType": {
+      "type": "object",
+      "title": "PriceType",
+      "required": [
+        "priceAmount"
+      ],
+      "properties": {
+        "priceAmount": {
+          "title": "priceAmount",
+          "anyOf": [
+            {
+              "$ref": "#/definitions/AmountType"
+            },
+            {
+              "$ref": "http://www.jsonix.org/jsonschemas/w3c/2001/XMLSchema.jsonschema#/definitions/normalizedString"
+            }
+          ],
+          "propertyType": "element",
+          "elementName": {
+            "localPart": "PriceAmount",
+            "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+          }
+        },
+        "baseQuantity": {
+          "title": "baseQuantity",
+          "anyOf": [
+            {
+              "$ref": "#/definitions/QuantityType"
+            },
+            {
+              "$ref": "http://www.jsonix.org/jsonschemas/w3c/2001/XMLSchema.jsonschema#/definitions/decimal"
+            }
+          ],
+          "propertyType": "element",
+          "elementName": {
+            "localPart": "BaseQuantity",
+            "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+          }
+        }
+      },
+      "typeType": "classInfo",
+      "typeName": {
+        "localPart": "PriceType",
+        "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+      },
+      "propertiesOrder": [
+        "priceAmount",
+        "baseQuantity"
+      ]
+    },
+    "InvoiceType": {
+      "type": "object",
+      "title": "InvoiceType",
+      "required": [
+        "id",
+        "issueDate",
+        "invoiceTypeCode",
+        "accountingSupplierParty",
+        "accountingCustomerParty",
+        "legalMonetaryTotal",
+        "invoiceLine"
+      ],
+      "properties": {
+        "ublExtensions": {
+          "title": "ublExtensions",
+          "allOf": [
+            {
+              "$ref": "#/definitions/UBLExtensionsType"
+            }
+          ],
+          "propertyType": "element",
+          "elementName": {
+            "localPart": "UBLExtensions",
+            "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+          }
+        },
+        "ublVersionID": {
+          "title": "ublVersionID",
+          "anyOf": [
+            {
+              "$ref": "#/definitions/IdentifierType"
+            },
+            {
+              "$ref": "http://www.jsonix.org/jsonschemas/w3c/2001/XMLSchema.jsonschema#/definitions/normalizedString"
+            }
+          ],
+          "propertyType": "element",
+          "elementName": {
+            "localPart": "UBLVersionID",
+            "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+          }
+        },
+        "customizationID": {
+          "title": "customizationID",
+          "anyOf": [
+            {
+              "$ref": "#/definitions/IdentifierType"
+            },
+            {
+              "$ref": "http://www.jsonix.org/jsonschemas/w3c/2001/XMLSchema.jsonschema#/definitions/normalizedString"
+            }
+          ],
+          "propertyType": "element",
+          "elementName": {
+            "localPart": "CustomizationID",
+            "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+          }
+        },
+        "profileID": {
+          "title": "profileID",
+          "anyOf": [
+            {
+              "$ref": "#/definitions/IdentifierType"
+            },
+            {
+              "$ref": "http://www.jsonix.org/jsonschemas/w3c/2001/XMLSchema.jsonschema#/definitions/normalizedString"
+            }
+          ],
+          "propertyType": "element",
+          "elementName": {
+            "localPart": "ProfileID",
+            "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+          }
+        },
+        "profileExecutionID": {
+          "title": "profileExecutionID",
+          "anyOf": [
+            {
+              "$ref": "#/definitions/IdentifierType"
+            },
+            {
+              "$ref": "http://www.jsonix.org/jsonschemas/w3c/2001/XMLSchema.jsonschema#/definitions/normalizedString"
+            }
+          ],
+          "propertyType": "element",
+          "elementName": {
+            "localPart": "ProfileExecutionID",
+            "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+          }
+        },
+        "id": {
+          "title": "id",
+          "anyOf": [
+            {
+              "$ref": "#/definitions/IdentifierType"
+            },
+            {
+              "$ref": "http://www.jsonix.org/jsonschemas/w3c/2001/XMLSchema.jsonschema#/definitions/normalizedString"
+            }
+          ],
+          "propertyType": "element",
+          "elementName": {
+            "localPart": "ID",
+            "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+          }
+        },
+        "copyIndicator": {
+          "title": "copyIndicator",
+          "anyOf": [
+            {
+              "$ref": "#/definitions/IndicatorType"
+            },
+            {
+              "$ref": "http://www.jsonix.org/jsonschemas/w3c/2001/XMLSchema.jsonschema#/definitions/boolean"
+            }
+          ],
+          "propertyType": "element",
+          "elementName": {
+            "localPart": "CopyIndicator",
+            "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+          }
+        },
+        "issueDate": {
+          "title": "issueDate",
+          "anyOf": [
+            {
+              "$ref": "#/definitions/DateType"
+            },
+            {
+              "$ref": "http://www.jsonix.org/jsonschemas/w3c/2001/XMLSchema.jsonschema#/definitions/normalizedString"
+            }
+          ],
+          "propertyType": "element",
+          "elementName": {
+            "localPart": "IssueDate",
+            "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+          }
+        },
+        "dueDate": {
+          "title": "dueDate",
+          "anyOf": [
+            {
+              "$ref": "#/definitions/DateType"
+            },
+            {
+              "$ref": "http://www.jsonix.org/jsonschemas/w3c/2001/XMLSchema.jsonschema#/definitions/normalizedString"
+            }
+          ],
+          "propertyType": "element",
+          "elementName": {
+            "localPart": "DueDate",
+            "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+          }
+        },
+        "invoiceTypeCode": {
+          "title": "invoiceTypeCode",
+          "anyOf": [
+            {
+              "$ref": "#/definitions/CodeType"
+            },
+            {
+              "$ref": "http://www.jsonix.org/jsonschemas/w3c/2001/XMLSchema.jsonschema#/definitions/normalizedString"
+            }
+          ],
+          "propertyType": "element",
+          "elementName": {
+            "localPart": "InvoiceTypeCode",
+            "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+          }
+        },
+        "note": {
+          "title": "note",
+          "allOf": [
+            {
+              "type": "array",
+              "items": {
+                "anyOf": [
+                  {
+                    "$ref": "#/definitions/TextType"
+                  },
+                  {
+                    "$ref": "http://www.jsonix.org/jsonschemas/w3c/2001/XMLSchema.jsonschema#/definitions/normalizedString"
+                  }
+                ]
+              },
+              "minItems": 0
+            }
+          ],
+          "propertyType": "element",
+          "elementName": {
+            "localPart": "Note",
+            "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+          }
+        },
+        "documentCurrencyCode": {
+          "title": "documentCurrencyCode",
+          "anyOf": [
+            {
+              "$ref": "#/definitions/CodeType"
+            },
+            {
+              "$ref": "http://www.jsonix.org/jsonschemas/w3c/2001/XMLSchema.jsonschema#/definitions/normalizedString"
+            }
+          ],
+          "propertyType": "element",
+          "elementName": {
+            "localPart": "DocumentCurrencyCode",
+            "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+          }
+        },
+        "buyerReference": {
+          "title": "buyerReference",
+          "anyOf": [
+            {
+              "$ref": "#/definitions/TextType"
+            },
+            {
+              "$ref": "http://www.jsonix.org/jsonschemas/w3c/2001/XMLSchema.jsonschema#/definitions/normalizedString"
+            }
+          ],
+          "propertyType": "element",
+          "elementName": {
+            "localPart": "BuyerReference",
+            "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+          }
+        },
+        "invoicePeriod": {
+          "title": "invoicePeriod",
+          "allOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/PeriodType"
+              },
+              "minItems": 0
+            }
+          ],
+          "propertyType": "element",
+          "elementName": {
+            "localPart": "InvoicePeriod",
+            "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+          }
+        },
+        "orderReference": {
+          "title": "orderReference",
+          "anyOf": [
+                      {
+                        "$ref": "#/definitions/IdentifierType"
+                      },
+                      {
+                        "$ref": "http://www.jsonix.org/jsonschemas/w3c/2001/XMLSchema.jsonschema#/definitions/normalizedString"
+                      }
+                    ],
+          "propertyType": "element",
+          "elementName": {
+            "localPart": "OrderReference",
+            "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+          }
+        },
+        "despatchDocumentReference": {
+          "title": "despatchDocumentReference",
+          "allOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/DocumentReferenceType"
+              },
+              "minItems": 0
+            }
+          ],
+          "propertyType": "element",
+          "elementName": {
+            "localPart": "DespatchDocumentReference",
+            "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+          }
+        },
+        "receiptDocumentReference": {
+          "title": "receiptDocumentReference",
+          "allOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/DocumentReferenceType"
+              },
+              "minItems": 0
+            }
+          ],
+          "propertyType": "element",
+          "elementName": {
+            "localPart": "ReceiptDocumentReference",
+            "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+          }
+        },
+        "contractDocumentReference": {
+          "title": "contractDocumentReference",
+          "allOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/DocumentReferenceType"
+              },
+              "minItems": 0
+            }
+          ],
+          "propertyType": "element",
+          "elementName": {
+            "localPart": "ContractDocumentReference",
+            "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+          }
+        },
+        "additionalDocumentReference": {
+          "title": "additionalDocumentReference",
+          "allOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/DocumentReferenceType"
+              },
+              "minItems": 0
+            }
+          ],
+          "propertyType": "element",
+          "elementName": {
+            "localPart": "AdditionalDocumentReference",
+            "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+          }
+        },
+        "accountingSupplierParty": {
+          "title": "accountingSupplierParty",
+          "allOf": [
+            {
+              "$ref": "#/definitions/SupplierPartyType"
+            }
+          ],
+          "propertyType": "element",
+          "elementName": {
+            "localPart": "AccountingSupplierParty",
+            "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+          }
+        },
+        "accountingCustomerParty": {
+          "title": "accountingCustomerParty",
+          "allOf": [
+            {
+              "$ref": "#/definitions/CustomerPartyType"
+            }
+          ],
+          "propertyType": "element",
+          "elementName": {
+            "localPart": "AccountingCustomerParty",
+            "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+          }
+        },
+        "payeeParty": {
+          "title": "payeeParty",
+          "allOf": [
+            {
+              "$ref": "#/definitions/PartyType"
+            }
+          ],
+          "propertyType": "element",
+          "elementName": {
+            "localPart": "PayeeParty",
+            "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+          }
+        },
+        "delivery": {
+          "title": "delivery",
+          "allOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/DeliveryType"
+              },
+              "minItems": 0
+            }
+          ],
+          "propertyType": "element",
+          "elementName": {
+            "localPart": "Delivery",
+            "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+          }
+        },
+        "paymentMeans": {
+          "title": "paymentMeans",
+          "allOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/PaymentMeansType"
+              },
+              "minItems": 0
+            }
+          ],
+          "propertyType": "element",
+          "elementName": {
+            "localPart": "PaymentMeans",
+            "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+          }
+        },
+        "allowanceCharge": {
+          "title": "allowanceCharge",
+          "allOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/AllowanceChargeType"
+              },
+              "minItems": 0
+            }
+          ],
+          "propertyType": "element",
+          "elementName": {
+            "localPart": "AllowanceCharge",
+            "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+          }
+        },
+        "taxTotal": {
+          "title": "taxTotal",
+          "allOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/TaxTotalType"
+              },
+              "minItems": 0
+            }
+          ],
+          "propertyType": "element",
+          "elementName": {
+            "localPart": "TaxTotal",
+            "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+          }
+        },
+        "legalMonetaryTotal": {
+          "title": "legalMonetaryTotal",
+          "anyOf": [
+            {
+              "$ref": "#/definitions/MonetaryTotalType"
+            }
+          ],
+          "propertyType": "element",
+          "elementName": {
+            "localPart": "LegalMonetaryTotal",
+            "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+          }
+        },
+        "invoiceLine": {
+          "title": "invoiceLine",
+          "allOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/InvoiceLineType"
+              },
+              "minItems": 1
+            }
+          ],
+          "propertyType": "element",
+          "elementName": {
+            "localPart": "InvoiceLine",
+            "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+          }
+        }
+      },
+      "typeType": "classInfo",
+      "typeName": {
+        "localPart": "InvoiceType",
+        "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+      },
+      "propertiesOrder": [
+        "ublExtensions",
+        "ublVersionID",
+        "customizationID",
+        "profileID",
+        "profileExecutionID",
+        "id",
+        "copyIndicator",
+        "issueDate",
+        "dueDate",
+        "invoiceTypeCode",
+        "note",
+        "documentCurrencyCode",
+        "buyerReference",
+        "invoicePeriod",
+        "orderReference",
+        "despatchDocumentReference",
+        "receiptDocumentReference",
+        "contractDocumentReference",
+        "additionalDocumentReference",
+        "accountingSupplierParty",
+        "accountingCustomerParty",
+        "payeeParty",
+        "delivery",
+        "paymentMeans",
+        "allowanceCharge",
+        "taxTotal",
+        "legalMonetaryTotal",
+        "invoiceLine"
+      ]
+    },
+    "UBLExtensionsType": {
+      "type": "object",
+      "title": "UBLExtensionsType",
+      "required": [
+        "ublExtension"
+      ],
+      "properties": {
+        "ublExtension": {
+          "title": "ublExtension",
+          "allOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/UBLExtensionType"
+              },
+              "minItems": 1
+            }
+          ],
+          "propertyType": "element",
+          "elementName": {
+            "localPart": "UBLExtension",
+            "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+          }
+        }
+      },
+      "typeType": "classInfo",
+      "typeName": {
+        "localPart": "UBLExtensionsType",
+        "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+      },
+      "propertiesOrder": [
+        "ublExtension"
+      ]
+    },
+    "AllowanceChargeType": {
+      "type": "object",
+      "title": "AllowanceChargeType",
+      "required": [
+        "chargeIndicator",
+        "amount"
+      ],
+      "properties": {
+        "chargeIndicator": {
+          "title": "chargeIndicator",
+          "anyOf": [
+            {
+              "$ref": "#/definitions/IndicatorType"
+            },
+            {
+              "$ref": "http://www.jsonix.org/jsonschemas/w3c/2001/XMLSchema.jsonschema#/definitions/boolean"
+            }
+          ],
+          "propertyType": "element",
+          "elementName": {
+            "localPart": "ChargeIndicator",
+            "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+          }
+        },
+        "allowanceChargeReasonCode": {
+          "title": "allowanceChargeReasonCode",
+          "anyOf": [
+            {
+              "$ref": "#/definitions/CodeType"
+            },
+            {
+              "$ref": "http://www.jsonix.org/jsonschemas/w3c/2001/XMLSchema.jsonschema#/definitions/normalizedString"
+            }
+          ],
+          "propertyType": "element",
+          "elementName": {
+            "localPart": "AllowanceChargeReasonCode",
+            "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+          }
+        },
+        "allowanceChargeReason": {
+          "title": "allowanceChargeReason",
+          "allOf": [
+            {
+              "type": "array",
+              "items": {
+                "anyOf": [
+                  {
+                    "$ref": "#/definitions/TextType"
+                  },
+                  {
+                    "$ref": "http://www.jsonix.org/jsonschemas/w3c/2001/XMLSchema.jsonschema#/definitions/normalizedString"
+                  }
+                ]
+              },
+              "minItems": 0
+            }
+          ],
+          "propertyType": "element",
+          "elementName": {
+            "localPart": "AllowanceChargeReason",
+            "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+          }
+        },
+        "multiplierFactorNumeric": {
+          "title": "multiplierFactorNumeric",
+          "anyOf": [
+            {
+              "$ref": "#/definitions/NumericType"
+            },
+            {
+              "$ref": "http://www.jsonix.org/jsonschemas/w3c/2001/XMLSchema.jsonschema#/definitions/decimal"
+            }
+          ],
+          "propertyType": "element",
+          "elementName": {
+            "localPart": "MultiplierFactorNumeric",
+            "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+          }
+        },
+        "amount": {
+          "title": "amount",
+          "anyOf": [
+            {
+              "$ref": "#/definitions/AmountType"
+            },
+            {
+              "$ref": "http://www.jsonix.org/jsonschemas/w3c/2001/XMLSchema.jsonschema#/definitions/normalizedString"
+            }
+          ],
+          "propertyType": "element",
+          "elementName": {
+            "localPart": "Amount",
+            "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+          }
+        },
+        "baseAmount": {
+          "title": "baseAmount",
+          "anyOf": [
+            {
+              "$ref": "#/definitions/AmountType"
+            },
+            {
+              "$ref": "http://www.jsonix.org/jsonschemas/w3c/2001/XMLSchema.jsonschema#/definitions/normalizedString"
+            }
+          ],
+          "propertyType": "element",
+          "elementName": {
+            "localPart": "BaseAmount",
+            "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+          }
+        },
+        "taxCategory": {
+          "title": "taxCategory",
+          "allOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/TaxCategoryType"
+              },
+              "minItems": 0
+            }
+          ],
+          "propertyType": "element",
+          "elementName": {
+            "localPart": "TaxCategory",
+            "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+          }
+        },
+        "taxTotal": {
+          "title": "taxTotal",
+          "allOf": [
+            {
+              "$ref": "#/definitions/TaxTotalType"
+            }
+          ],
+          "propertyType": "element",
+          "elementName": {
+            "localPart": "TaxTotal",
+            "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+          }
+        }
+      },
+      "typeType": "classInfo",
+      "typeName": {
+        "localPart": "AllowanceChargeType",
+        "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+      },
+      "propertiesOrder": [
+        "chargeIndicator",
+        "allowanceChargeReasonCode",
+        "allowanceChargeReason",
+        "multiplierFactorNumeric",
+        "amount",
+        "baseAmount",
+        "taxCategory",
+        "taxTotal"
+      ]
+    },
+    "ItemIdentificationType": {
+      "type": "object",
+      "title": "ItemIdentificationType",
+      "required": [
+        "id"
+      ],
+      "properties": {
+        "id": {
+          "title": "id",
+          "anyOf": [
+            {
+              "$ref": "#/definitions/IdentifierType"
+            },
+            {
+              "$ref": "http://www.jsonix.org/jsonschemas/w3c/2001/XMLSchema.jsonschema#/definitions/normalizedString"
+            }
+          ],
+          "propertyType": "element",
+          "elementName": {
+            "localPart": "ID",
+            "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+          }
+        }
+      },
+      "typeType": "classInfo",
+      "typeName": {
+        "localPart": "ItemIdentificationType",
+        "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+      },
+      "propertiesOrder": [
+        "id"
+      ]
+    },
+    "PartyIdentificationType": {
+      "type": "object",
+      "title": "PartyIdentificationType",
+      "required": [
+        "id"
+      ],
+      "properties": {
+        "id": {
+          "title": "id",
+          "anyOf": [
+            {
+              "$ref": "#/definitions/IdentifierType"
+            },
+            {
+              "$ref": "http://www.jsonix.org/jsonschemas/w3c/2001/XMLSchema.jsonschema#/definitions/normalizedString"
+            }
+          ],
+          "propertyType": "element",
+          "elementName": {
+            "localPart": "ID",
+            "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+          }
+        }
+      },
+      "typeType": "classInfo",
+      "typeName": {
+        "localPart": "PartyIdentificationType",
+        "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+      },
+      "propertiesOrder": [
+        "id"
+      ]
+    },
+    "ContactType": {
+      "type": "object",
+      "title": "ContactType",
+      "properties": {
+        "id": {
+          "title": "id",
+          "anyOf": [
+            {
+              "$ref": "#/definitions/IdentifierType"
+            },
+            {
+              "$ref": "http://www.jsonix.org/jsonschemas/w3c/2001/XMLSchema.jsonschema#/definitions/normalizedString"
+            }
+          ],
+          "propertyType": "element",
+          "elementName": {
+            "localPart": "ID",
+            "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+          }
+        },
+        "telephone": {
+          "title": "telephone",
+          "anyOf": [
+            {
+              "$ref": "#/definitions/TextType"
+            },
+            {
+              "$ref": "http://www.jsonix.org/jsonschemas/w3c/2001/XMLSchema.jsonschema#/definitions/normalizedString"
+            }
+          ],
+          "propertyType": "element",
+          "elementName": {
+            "localPart": "Telephone",
+            "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+          }
+        },
+        "electronicMail": {
+          "title": "electronicMail",
+          "anyOf": [
+            {
+              "$ref": "#/definitions/TextType"
+            },
+            {
+              "$ref": "http://www.jsonix.org/jsonschemas/w3c/2001/XMLSchema.jsonschema#/definitions/normalizedString"
+            }
+          ],
+          "propertyType": "element",
+          "elementName": {
+            "localPart": "ElectronicMail",
+            "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+          }
+        }
+      },
+      "typeType": "classInfo",
+      "typeName": {
+        "localPart": "ContactType",
+        "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+      },
+      "propertiesOrder": [
+        "id",
+        "telephone",
+        "electronicMail"
+      ]
+    },
+    "SupplierPartyType": {
+      "type": "object",
+      "title": "SupplierPartyType",
+      "properties": {
+        "party": {
+          "title": "party",
+          "allOf": [
+            {
+              "$ref": "#/definitions/PartyType"
+            }
+          ],
+          "propertyType": "element",
+          "elementName": {
+            "localPart": "Party",
+            "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+          }
+        },
+        "sellerContact": {
+          "title": "sellerContact",
+          "allOf": [
+            {
+              "$ref": "#/definitions/ContactType"
+            }
+          ],
+          "propertyType": "element",
+          "elementName": {
+            "localPart": "SellerContact",
+            "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+          }
+        }
+      },
+      "typeType": "classInfo",
+      "typeName": {
+        "localPart": "SupplierPartyType",
+        "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+      },
+      "propertiesOrder": [
+        "party",
+        "sellerContact"
+      ]
+    },
+    "ExtensionContentType": {
+      "type": "object",
+      "title": "ExtensionContentType",
+      "required": [
+        "any"
+      ],
+      "properties": {
+        "any": {
+          "title": "any",
+          "allOf": [
+            {
+              "anyOf": [
+                {
+                  "$ref": "http://www.jsonix.org/jsonschemas/jsonix/Jsonix.jsonschema#/definitions/dom"
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "$ref": "http://www.jsonix.org/jsonschemas/w3c/2001/XMLSchema.jsonschema#/definitions/QName"
+                    },
+                    "value": {}
+                  }
+                }
+              ]
+            }
+          ],
+          "propertyType": "anyElement"
+        }
+      },
+      "typeType": "classInfo",
+      "typeName": {
+        "localPart": "ExtensionContentType",
+        "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+      },
+      "propertiesOrder": [
+        "any"
+      ]
+    },
+    "IndicatorType": {
+      "type": "object",
+      "title": "IndicatorType",
+      "properties": {
+        "value": {
+          "title": "value",
+          "allOf": [
+            {
+              "$ref": "http://www.jsonix.org/jsonschemas/w3c/2001/XMLSchema.jsonschema#/definitions/boolean"
+            }
+          ],
+          "propertyType": "value"
+        }
+      },
+      "typeType": "classInfo",
+      "typeName": {
+        "localPart": "IndicatorType",
+        "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+      },
+      "propertiesOrder": [
+        "value"
+      ]
+    },
+    "PartyType": {
+      "type": "object",
+      "title": "PartyType",
+      "properties": {
+        "endpointID": {
+          "title": "endpointID",
+          "anyOf": [
+            {
+              "$ref": "#/definitions/IdentifierType"
+            },
+            {
+              "$ref": "http://www.jsonix.org/jsonschemas/w3c/2001/XMLSchema.jsonschema#/definitions/normalizedString"
+            }
+          ],
+          "propertyType": "element",
+          "elementName": {
+            "localPart": "EndpointID",
+            "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+          }
+        },
+        "partyIdentification": {
+          "title": "partyIdentification",
+          "allOf": [
+            {
+              "type": "array",
+              "items": {
+                "anyOf": [
+                                    {
+                                      "$ref": "#/definitions/IdentifierType"
+                                    },
+                                    {
+                                      "$ref": "http://www.jsonix.org/jsonschemas/w3c/2001/XMLSchema.jsonschema#/definitions/normalizedString"
+                                    }
+                                  ]
+              },
+              "minItems": 0
+            }
+          ],
+          "propertyType": "element",
+          "elementName": {
+            "localPart": "PartyIdentification",
+            "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+          }
+        },
+        "partyName": {
+          "title": "partyName",
+          "allOf": [
+            {
+              "type": "array",
+              "items": {
+                "anyOf": [
+                  {
+                    "$ref": "#/definitions/PartyNameType"
+                  },
+                  {
+                    "$ref": "http://www.jsonix.org/jsonschemas/w3c/2001/XMLSchema.jsonschema#/definitions/normalizedString"
+                  }
+                ]
+              },
+              "minItems": 0
+            }
+          ],
+          "propertyType": "element",
+          "elementName": {
+            "localPart": "PartyName",
+            "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+          }
+        },
+        "postalAddress": {
+          "title": "postalAddress",
+          "allOf": [
+            {
+              "$ref": "#/definitions/AddressType"
+            }
+          ],
+          "propertyType": "element",
+          "elementName": {
+            "localPart": "PostalAddress",
+            "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+          }
+        },
+        "partyTaxScheme": {
+          "title": "partyTaxScheme",
+          "allOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/PartyTaxSchemeType"
+              },
+              "minItems": 0
+            }
+          ],
+          "propertyType": "element",
+          "elementName": {
+            "localPart": "PartyTaxScheme",
+            "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+          }
+        },
+        "partyLegalEntity": {
+          "title": "partyLegalEntity",
+          "allOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/PartyLegalEntityType"
+              },
+              "minItems": 0
+            }
+          ],
+          "propertyType": "element",
+          "elementName": {
+            "localPart": "PartyLegalEntity",
+            "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+          }
+        }
+      },
+      "typeType": "classInfo",
+      "typeName": {
+        "localPart": "PartyType",
+        "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+      },
+      "propertiesOrder": [
+        "endpointID",
+        "partyIdentification",
+        "partyName",
+        "postalAddress",
+        "partyTaxScheme",
+        "partyLegalEntity"
+      ]
+    },
+    "TaxCategoryType": {
+      "type": "object",
+      "title": "TaxCategoryType",
+      "required": [
+        "taxScheme"
+      ],
+      "properties": {
+        "id": {
+          "title": "id",
+          "anyOf": [
+            {
+              "$ref": "#/definitions/IdentifierType"
+            },
+            {
+              "$ref": "http://www.jsonix.org/jsonschemas/w3c/2001/XMLSchema.jsonschema#/definitions/normalizedString"
+            }
+          ],
+          "propertyType": "element",
+          "elementName": {
+            "localPart": "ID",
+            "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+          }
+        },
+        "percent": {
+          "title": "percent",
+          "anyOf": [
+            {
+              "$ref": "#/definitions/NumericType"
+            },
+            {
+              "$ref": "http://www.jsonix.org/jsonschemas/w3c/2001/XMLSchema.jsonschema#/definitions/decimal"
+            }
+          ],
+          "propertyType": "element",
+          "elementName": {
+            "localPart": "Percent",
+            "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+          }
+        },
+        "taxExemptionReason": {
+          "title": "taxExemptionReason",
+          "allOf": [
+            {
+              "type": "array",
+              "items": {
+                "anyOf": [
+                  {
+                    "$ref": "#/definitions/TextType"
+                  },
+                  {
+                    "$ref": "http://www.jsonix.org/jsonschemas/w3c/2001/XMLSchema.jsonschema#/definitions/normalizedString"
+                  }
+                ]
+              },
+              "minItems": 0
+            }
+          ],
+          "propertyType": "element",
+          "elementName": {
+            "localPart": "TaxExemptionReason",
+            "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+          }
+        },
+        "taxScheme": {
+          "title": "taxScheme",
+          "anyOf": [
+                      {
+                        "$ref": "#/definitions/IdentifierType"
+                      },
+                      {
+                        "$ref": "http://www.jsonix.org/jsonschemas/w3c/2001/XMLSchema.jsonschema#/definitions/normalizedString"
+                      }
+                    ],
+          "propertyType": "element",
+          "elementName": {
+            "localPart": "TaxScheme",
+            "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+          }
+        }
+      },
+      "typeType": "classInfo",
+      "typeName": {
+        "localPart": "TaxCategoryType",
+        "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+      },
+      "propertiesOrder": [
+        "id",
+        "percent",
+        "taxExemptionReason",
+        "taxScheme"
+      ]
+    },
+    "InvoiceLineType": {
+      "type": "object",
+      "title": "InvoiceLineType",
+      "required": [
+        "id",
+        "lineExtensionAmount",
+        "item"
+      ],
+      "properties": {
+        "id": {
+          "title": "id",
+          "anyOf": [
+            {
+              "$ref": "#/definitions/IdentifierType"
+            },
+            {
+              "$ref": "http://www.jsonix.org/jsonschemas/w3c/2001/XMLSchema.jsonschema#/definitions/normalizedString"
+            }
+          ],
+          "propertyType": "element",
+          "elementName": {
+            "localPart": "ID",
+            "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+          }
+        },
+        "note": {
+          "title": "note",
+          "allOf": [
+            {
+              "type": "array",
+              "items": {
+                "anyOf": [
+                  {
+                    "$ref": "#/definitions/TextType"
+                  },
+                  {
+                    "$ref": "http://www.jsonix.org/jsonschemas/w3c/2001/XMLSchema.jsonschema#/definitions/normalizedString"
+                  }
+                ]
+              },
+              "minItems": 0
+            }
+          ],
+          "propertyType": "element",
+          "elementName": {
+            "localPart": "Note",
+            "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+          }
+        },
+        "invoicedQuantity": {
+          "title": "invoicedQuantity",
+          "anyOf": [
+            {
+              "$ref": "#/definitions/QuantityType"
+            },
+            {
+              "$ref": "http://www.jsonix.org/jsonschemas/w3c/2001/XMLSchema.jsonschema#/definitions/decimal"
+            }
+          ],
+          "propertyType": "element",
+          "elementName": {
+            "localPart": "InvoicedQuantity",
+            "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+          }
+        },
+        "lineExtensionAmount": {
+          "title": "lineExtensionAmount",
+          "anyOf": [
+            {
+              "$ref": "#/definitions/AmountType"
+            },
+            {
+              "$ref": "http://www.jsonix.org/jsonschemas/w3c/2001/XMLSchema.jsonschema#/definitions/normalizedString"
+            }
+          ],
+          "propertyType": "element",
+          "elementName": {
+            "localPart": "LineExtensionAmount",
+            "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+          }
+        },
+        "accountingCost": {
+          "title": "accountingCost",
+          "anyOf": [
+            {
+              "$ref": "#/definitions/TextType"
+            },
+            {
+              "$ref": "http://www.jsonix.org/jsonschemas/w3c/2001/XMLSchema.jsonschema#/definitions/normalizedString"
+            }
+          ],
+          "propertyType": "element",
+          "elementName": {
+            "localPart": "AccountingCost",
+            "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+          }
+        },
+        "invoicePeriod": {
+          "title": "invoicePeriod",
+          "allOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/PeriodType"
+              },
+              "minItems": 0
+            }
+          ],
+          "propertyType": "element",
+          "elementName": {
+            "localPart": "InvoicePeriod",
+            "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+          }
+        },
+        "documentReference": {
+          "title": "documentReference",
+          "allOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/DocumentReferenceType"
+              },
+              "minItems": 0
+            }
+          ],
+          "propertyType": "element",
+          "elementName": {
+            "localPart": "DocumentReference",
+            "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+          }
+        },
+        "allowanceCharge": {
+          "title": "allowanceCharge",
+          "allOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/AllowanceChargeType"
+              },
+              "minItems": 0
+            }
+          ],
+          "propertyType": "element",
+          "elementName": {
+            "localPart": "AllowanceCharge",
+            "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+          }
+        },
+        "taxTotal": {
+          "title": "taxTotal",
+          "allOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/TaxTotalType"
+              },
+              "minItems": 0
+            }
+          ],
+          "propertyType": "element",
+          "elementName": {
+            "localPart": "TaxTotal",
+            "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+          }
+        },
+        "item": {
+          "title": "item",
+          "allOf": [
+            {
+              "$ref": "#/definitions/ItemType"
+            }
+          ],
+          "propertyType": "element",
+          "elementName": {
+            "localPart": "Item",
+            "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+          }
+        },
+        "price": {
+          "title": "price",
+          "allOf": [
+            {
+              "$ref": "#/definitions/PriceType"
+            }
+          ],
+          "propertyType": "element",
+          "elementName": {
+            "localPart": "Price",
+            "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+          }
+        }
+      },
+      "typeType": "classInfo",
+      "typeName": {
+        "localPart": "InvoiceLineType",
+        "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+      },
+      "propertiesOrder": [
+        "id",
+        "note",
+        "invoicedQuantity",
+        "lineExtensionAmount",
+        "accountingCost",
+        "invoicePeriod",
+        "documentReference",
+        "allowanceCharge",
+        "taxTotal",
+        "item",
+        "price"
+      ]
+    },
+    "CodeType": {
+      "type": "object",
+      "title": "CodeType",
+      "properties": {
+        "value": {
+          "title": "value",
+          "allOf": [
+            {
+              "$ref": "http://www.jsonix.org/jsonschemas/w3c/2001/XMLSchema.jsonschema#/definitions/normalizedString"
+            }
+          ],
+          "propertyType": "value"
+        },
+        "listID": {
+          "title": "listID",
+          "allOf": [
+            {
+              "$ref": "http://www.jsonix.org/jsonschemas/w3c/2001/XMLSchema.jsonschema#/definitions/normalizedString"
+            }
+          ],
+          "propertyType": "attribute",
+          "attributeName": {
+            "localPart": "listID",
+            "namespaceURI": ""
+          }
+        },
+        "listAgencyID": {
+          "title": "listAgencyID",
+          "allOf": [
+            {
+              "$ref": "http://www.jsonix.org/jsonschemas/w3c/2001/XMLSchema.jsonschema#/definitions/normalizedString"
+            }
+          ],
+          "propertyType": "attribute",
+          "attributeName": {
+            "localPart": "listAgencyID",
+            "namespaceURI": ""
+          }
+        },
+        "listAgencyName": {
+          "title": "listAgencyName",
+          "allOf": [
+            {
+              "$ref": "http://www.jsonix.org/jsonschemas/w3c/2001/XMLSchema.jsonschema#/definitions/string"
+            }
+          ],
+          "propertyType": "attribute",
+          "attributeName": {
+            "localPart": "listAgencyName",
+            "namespaceURI": ""
+          }
+        },
+        "listName": {
+          "title": "listName",
+          "allOf": [
+            {
+              "$ref": "http://www.jsonix.org/jsonschemas/w3c/2001/XMLSchema.jsonschema#/definitions/string"
+            }
+          ],
+          "propertyType": "attribute",
+          "attributeName": {
+            "localPart": "listName",
+            "namespaceURI": ""
+          }
+        },
+        "listVersionID": {
+          "title": "listVersionID",
+          "allOf": [
+            {
+              "$ref": "http://www.jsonix.org/jsonschemas/w3c/2001/XMLSchema.jsonschema#/definitions/normalizedString"
+            }
+          ],
+          "propertyType": "attribute",
+          "attributeName": {
+            "localPart": "listVersionID",
+            "namespaceURI": ""
+          }
+        },
+        "name": {
+          "title": "name",
+          "allOf": [
+            {
+              "$ref": "http://www.jsonix.org/jsonschemas/w3c/2001/XMLSchema.jsonschema#/definitions/string"
+            }
+          ],
+          "propertyType": "attribute",
+          "attributeName": {
+            "localPart": "name",
+            "namespaceURI": ""
+          }
+        },
+        "languageID": {
+          "title": "languageID",
+          "allOf": [
+            {
+              "$ref": "http://www.jsonix.org/jsonschemas/w3c/2001/XMLSchema.jsonschema#/definitions/language"
+            }
+          ],
+          "propertyType": "attribute",
+          "attributeName": {
+            "localPart": "languageID",
+            "namespaceURI": ""
+          }
+        },
+        "listURI": {
+          "title": "listURI",
+          "allOf": [
+            {
+              "$ref": "http://www.jsonix.org/jsonschemas/w3c/2001/XMLSchema.jsonschema#/definitions/anyURI"
+            }
+          ],
+          "propertyType": "attribute",
+          "attributeName": {
+            "localPart": "listURI",
+            "namespaceURI": ""
+          }
+        },
+        "listSchemeURI": {
+          "title": "listSchemeURI",
+          "allOf": [
+            {
+              "$ref": "http://www.jsonix.org/jsonschemas/w3c/2001/XMLSchema.jsonschema#/definitions/anyURI"
+            }
+          ],
+          "propertyType": "attribute",
+          "attributeName": {
+            "localPart": "listSchemeURI",
+            "namespaceURI": ""
+          }
+        }
+      },
+      "typeType": "classInfo",
+      "typeName": {
+        "localPart": "CodeType",
+        "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+      },
+      "propertiesOrder": [
+        "value",
+        "listID",
+        "listAgencyID",
+        "listAgencyName",
+        "listName",
+        "listVersionID",
+        "name",
+        "languageID",
+        "listURI",
+        "listSchemeURI"
+      ]
+    },
+    "AddressType": {
+      "type": "object",
+      "title": "AddressType",
+      "properties": {
+        "cityName": {
+          "title": "cityName",
+          "anyOf": [
+            {
+              "$ref": "#/definitions/TextType"
+            },
+            {
+              "$ref": "http://www.jsonix.org/jsonschemas/w3c/2001/XMLSchema.jsonschema#/definitions/normalizedString"
+            }
+          ],
+          "propertyType": "element",
+          "elementName": {
+            "localPart": "CityName",
+            "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+          }
+        },
+        "postalZone": {
+          "title": "postalZone",
+          "anyOf": [
+            {
+              "$ref": "#/definitions/TextType"
+            },
+            {
+              "$ref": "http://www.jsonix.org/jsonschemas/w3c/2001/XMLSchema.jsonschema#/definitions/normalizedString"
+            }
+          ],
+          "propertyType": "element",
+          "elementName": {
+            "localPart": "PostalZone",
+            "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+          }
+        },
+        "countrySubentity": {
+          "title": "countrySubentity",
+          "anyOf": [
+            {
+              "$ref": "#/definitions/TextType"
+            },
+            {
+              "$ref": "http://www.jsonix.org/jsonschemas/w3c/2001/XMLSchema.jsonschema#/definitions/normalizedString"
+            }
+          ],
+          "propertyType": "element",
+          "elementName": {
+            "localPart": "CountrySubentity",
+            "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+          }
+        },
+        "addressLine": {
+          "title": "addressLine",
+          "allOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/AddressLineType"
+              },
+              "minItems": 0
+            }
+          ],
+          "propertyType": "element",
+          "elementName": {
+            "localPart": "AddressLine",
+            "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+          }
+        },
+        "country": {
+          "title": "country",
+          "anyOf": [
+                      {
+                        "$ref": "#/definitions/CodeType"
+                      },
+                      {
+                        "$ref": "http://www.jsonix.org/jsonschemas/w3c/2001/XMLSchema.jsonschema#/definitions/normalizedString"
+                      }
+                    ],
+          "propertyType": "element",
+          "elementName": {
+            "localPart": "Country",
+            "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+          }
+        }
+      },
+      "typeType": "classInfo",
+      "typeName": {
+        "localPart": "AddressType",
+        "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+      },
+      "propertiesOrder": [
+        "cityName",
+        "postalZone",
+        "countrySubentity",
+        "addressLine",
+        "country"
+      ]
+    },
+    "DeliveryType": {
+      "type": "object",
+      "title": "DeliveryType",
+      "properties": {
+        "actualDeliveryDate": {
+          "title": "actualDeliveryDate",
+          "anyOf": [
+            {
+              "$ref": "#/definitions/DateType"
+            },
+            {
+              "$ref": "http://www.jsonix.org/jsonschemas/w3c/2001/XMLSchema.jsonschema#/definitions/normalizedString"
+            }
+          ],
+          "propertyType": "element",
+          "elementName": {
+            "localPart": "ActualDeliveryDate",
+            "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+          }
+        },
+        "deliveryAddress": {
+          "title": "deliveryAddress",
+          "allOf": [
+            {
+              "$ref": "#/definitions/AddressType"
+            }
+          ],
+          "propertyType": "element",
+          "elementName": {
+            "localPart": "DeliveryAddress",
+            "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+          }
+        },
+        "deliveryParty": {
+          "title": "deliveryParty",
+          "allOf": [
+            {
+              "$ref": "#/definitions/PartyType"
+            }
+          ],
+          "propertyType": "element",
+          "elementName": {
+            "localPart": "DeliveryParty",
+            "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+          }
+        }
+      },
+      "typeType": "classInfo",
+      "typeName": {
+        "localPart": "DeliveryType",
+        "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+      },
+      "propertiesOrder": [
+        "actualDeliveryDate",
+        "deliveryAddress",
+        "deliveryParty"
+      ]
+    },
+    "PaymentMeansType": {
+      "type": "object",
+      "title": "PaymentMeansType",
+      "required": [
+        "paymentMeansCode"
+      ],
+      "properties": {
+        "id": {
+          "title": "id",
+          "anyOf": [
+            {
+              "$ref": "#/definitions/IdentifierType"
+            },
+            {
+              "$ref": "http://www.jsonix.org/jsonschemas/w3c/2001/XMLSchema.jsonschema#/definitions/normalizedString"
+            }
+          ],
+          "propertyType": "element",
+          "elementName": {
+            "localPart": "ID",
+            "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+          }
+        },
+        "paymentMeansCode": {
+          "title": "paymentMeansCode",
+          "anyOf": [
+            {
+              "$ref": "#/definitions/CodeType"
+            },
+            {
+              "$ref": "http://www.jsonix.org/jsonschemas/w3c/2001/XMLSchema.jsonschema#/definitions/normalizedString"
+            }
+          ],
+          "propertyType": "element",
+          "elementName": {
+            "localPart": "PaymentMeansCode",
+            "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+          }
+        },
+        "instructionID": {
+          "title": "instructionID",
+          "anyOf": [
+            {
+              "$ref": "#/definitions/IdentifierType"
+            },
+            {
+              "$ref": "http://www.jsonix.org/jsonschemas/w3c/2001/XMLSchema.jsonschema#/definitions/normalizedString"
+            }
+          ],
+          "propertyType": "element",
+          "elementName": {
+            "localPart": "InstructionID",
+            "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+          }
+        },
+        "payerFinancialAccount": {
+          "title": "payerFinancialAccount",
+          "allOf": [
+            {
+              "$ref": "#/definitions/FinancialAccountType"
+            }
+          ],
+          "propertyType": "element",
+          "elementName": {
+            "localPart": "PayerFinancialAccount",
+            "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+          }
+        },
+        "payeeFinancialAccount": {
+          "title": "payeeFinancialAccount",
+          "allOf": [
+            {
+              "$ref": "#/definitions/FinancialAccountType"
+            }
+          ],
+          "propertyType": "element",
+          "elementName": {
+            "localPart": "PayeeFinancialAccount",
+            "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+          }
+        }
+      },
+      "typeType": "classInfo",
+      "typeName": {
+        "localPart": "PaymentMeansType",
+        "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+      },
+      "propertiesOrder": [
+        "id",
+        "paymentMeansCode",
+        "instructionID",
+        "payerFinancialAccount",
+        "payeeFinancialAccount"
+      ]
+    },
+    "OrderReferenceType": {
+      "type": "object",
+      "title": "OrderReferenceType",
+      "required": [
+        "id"
+      ],
+      "properties": {
+        "id": {
+          "title": "id",
+          "anyOf": [
+            {
+              "$ref": "#/definitions/IdentifierType"
+            },
+            {
+              "$ref": "http://www.jsonix.org/jsonschemas/w3c/2001/XMLSchema.jsonschema#/definitions/normalizedString"
+            }
+          ],
+          "propertyType": "element",
+          "elementName": {
+            "localPart": "ID",
+            "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+          }
+        },
+        "salesOrderID": {
+          "title": "salesOrderID",
+          "anyOf": [
+            {
+              "$ref": "#/definitions/IdentifierType"
+            },
+            {
+              "$ref": "http://www.jsonix.org/jsonschemas/w3c/2001/XMLSchema.jsonschema#/definitions/normalizedString"
+            }
+          ],
+          "propertyType": "element",
+          "elementName": {
+            "localPart": "SalesOrderID",
+            "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+          }
+        }
+      },
+      "typeType": "classInfo",
+      "typeName": {
+        "localPart": "OrderReferenceType",
+        "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+      },
+      "propertiesOrder": [
+        "id",
+        "salesOrderID"
+      ]
+    },
+    "CommodityClassificationType": {
+      "type": "object",
+      "title": "CommodityClassificationType",
+      "properties": {
+        "itemClassificationCode": {
+          "title": "itemClassificationCode",
+          "anyOf": [
+            {
+              "$ref": "#/definitions/CodeType"
+            },
+            {
+              "$ref": "http://www.jsonix.org/jsonschemas/w3c/2001/XMLSchema.jsonschema#/definitions/normalizedString"
+            }
+          ],
+          "propertyType": "element",
+          "elementName": {
+            "localPart": "ItemClassificationCode",
+            "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+          }
+        }
+      },
+      "typeType": "classInfo",
+      "typeName": {
+        "localPart": "CommodityClassificationType",
+        "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+      },
+      "propertiesOrder": [
+        "itemClassificationCode"
+      ]
+    },
+    "ExternalReferenceType": {
+      "type": "object",
+      "title": "ExternalReferenceType",
+      "properties": {
+        "uri": {
+          "title": "uri",
+          "anyOf": [
+            {
+              "$ref": "#/definitions/IdentifierType"
+            },
+            {
+              "$ref": "http://www.jsonix.org/jsonschemas/w3c/2001/XMLSchema.jsonschema#/definitions/normalizedString"
+            }
+          ],
+          "propertyType": "element",
+          "elementName": {
+            "localPart": "URI",
+            "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+          }
+        }
+      },
+      "typeType": "classInfo",
+      "typeName": {
+        "localPart": "ExternalReferenceType",
+        "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+      },
+      "propertiesOrder": [
+        "uri"
+      ]
+    },
+    "DateType": {
+      "type": "object",
+      "title": "DateType",
+      "properties": {
+        "value": {
+          "title": "value",
+          "allOf": [
+            {
+              "$ref": "http://www.jsonix.org/jsonschemas/w3c/2001/XMLSchema.jsonschema#/definitions/normalizedString"
+            }
+          ],
+          "propertyType": "value"
+        }
+      },
+      "typeType": "classInfo",
+      "typeName": {
+        "localPart": "DateType",
+        "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+      },
+      "propertiesOrder": [
+        "value"
+      ]
+    },
+    "PeriodType": {
+      "type": "object",
+      "title": "PeriodType",
+      "properties": {
+        "startDate": {
+          "title": "startDate",
+          "anyOf": [
+            {
+              "$ref": "#/definitions/DateType"
+            },
+            {
+              "$ref": "http://www.jsonix.org/jsonschemas/w3c/2001/XMLSchema.jsonschema#/definitions/normalizedString"
+            }
+          ],
+          "propertyType": "element",
+          "elementName": {
+            "localPart": "StartDate",
+            "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+          }
+        },
+        "endDate": {
+          "title": "endDate",
+          "anyOf": [
+            {
+              "$ref": "#/definitions/DateType"
+            },
+            {
+              "$ref": "http://www.jsonix.org/jsonschemas/w3c/2001/XMLSchema.jsonschema#/definitions/normalizedString"
+            }
+          ],
+          "propertyType": "element",
+          "elementName": {
+            "localPart": "EndDate",
+            "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+          }
+        }
+      },
+      "typeType": "classInfo",
+      "typeName": {
+        "localPart": "PeriodType",
+        "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+      },
+      "propertiesOrder": [
+        "startDate",
+        "endDate"
+      ]
+    },
+    "BinaryObjectType": {
+      "type": "object",
+      "title": "BinaryObjectType",
+      "required": [
+        "mimeCode"
+      ],
+      "properties": {
+        "value": {
+          "title": "value",
+          "allOf": [
+            {
+              "$ref": "http://www.jsonix.org/jsonschemas/w3c/2001/XMLSchema.jsonschema#/definitions/base64Binary"
+            }
+          ],
+          "propertyType": "value"
+        },
+        "format": {
+          "title": "format",
+          "allOf": [
+            {
+              "$ref": "http://www.jsonix.org/jsonschemas/w3c/2001/XMLSchema.jsonschema#/definitions/string"
+            }
+          ],
+          "propertyType": "attribute",
+          "attributeName": {
+            "localPart": "format",
+            "namespaceURI": ""
+          }
+        },
+        "mimeCode": {
+          "title": "mimeCode",
+          "allOf": [
+            {
+              "$ref": "http://www.jsonix.org/jsonschemas/w3c/2001/XMLSchema.jsonschema#/definitions/normalizedString"
+            }
+          ],
+          "propertyType": "attribute",
+          "attributeName": {
+            "localPart": "mimeCode",
+            "namespaceURI": ""
+          }
+        },
+        "encodingCode": {
+          "title": "encodingCode",
+          "allOf": [
+            {
+              "$ref": "http://www.jsonix.org/jsonschemas/w3c/2001/XMLSchema.jsonschema#/definitions/normalizedString"
+            }
+          ],
+          "propertyType": "attribute",
+          "attributeName": {
+            "localPart": "encodingCode",
+            "namespaceURI": ""
+          }
+        },
+        "characterSetCode": {
+          "title": "characterSetCode",
+          "allOf": [
+            {
+              "$ref": "http://www.jsonix.org/jsonschemas/w3c/2001/XMLSchema.jsonschema#/definitions/normalizedString"
+            }
+          ],
+          "propertyType": "attribute",
+          "attributeName": {
+            "localPart": "characterSetCode",
+            "namespaceURI": ""
+          }
+        },
+        "uri": {
+          "title": "uri",
+          "allOf": [
+            {
+              "$ref": "http://www.jsonix.org/jsonschemas/w3c/2001/XMLSchema.jsonschema#/definitions/anyURI"
+            }
+          ],
+          "propertyType": "attribute",
+          "attributeName": {
+            "localPart": "uri",
+            "namespaceURI": ""
+          }
+        },
+        "filename": {
+          "title": "filename",
+          "allOf": [
+            {
+              "$ref": "http://www.jsonix.org/jsonschemas/w3c/2001/XMLSchema.jsonschema#/definitions/string"
+            }
+          ],
+          "propertyType": "attribute",
+          "attributeName": {
+            "localPart": "filename",
+            "namespaceURI": ""
+          }
+        }
+      },
+      "typeType": "classInfo",
+      "typeName": {
+        "localPart": "BinaryObjectType",
+        "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+      },
+      "propertiesOrder": [
+        "value",
+        "format",
+        "mimeCode",
+        "encodingCode",
+        "characterSetCode",
+        "uri",
+        "filename"
+      ]
+    },
+    "NumericType": {
+      "type": "object",
+      "title": "NumericType",
+      "properties": {
+        "value": {
+          "title": "value",
+          "allOf": [
+            {
+              "$ref": "http://www.jsonix.org/jsonschemas/w3c/2001/XMLSchema.jsonschema#/definitions/decimal"
+            }
+          ],
+          "propertyType": "value"
+        },
+        "format": {
+          "title": "format",
+          "allOf": [
+            {
+              "$ref": "http://www.jsonix.org/jsonschemas/w3c/2001/XMLSchema.jsonschema#/definitions/string"
+            }
+          ],
+          "propertyType": "attribute",
+          "attributeName": {
+            "localPart": "format",
+            "namespaceURI": ""
+          }
+        }
+      },
+      "typeType": "classInfo",
+      "typeName": {
+        "localPart": "NumericType",
+        "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+      },
+      "propertiesOrder": [
+        "value",
+        "format"
+      ]
+    },
+    "PartyTaxSchemeType": {
+      "type": "object",
+      "title": "PartyTaxSchemeType",
+      "required": [
+        "taxScheme"
+      ],
+      "properties": {
+        "companyID": {
+          "title": "companyID",
+          "anyOf": [
+            {
+              "$ref": "#/definitions/IdentifierType"
+            },
+            {
+              "$ref": "http://www.jsonix.org/jsonschemas/w3c/2001/XMLSchema.jsonschema#/definitions/normalizedString"
+            }
+          ],
+          "propertyType": "element",
+          "elementName": {
+            "localPart": "CompanyID",
+            "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+          }
+        },
+        "taxLevelCode": {
+          "title": "taxLevelCode",
+          "anyOf": [
+            {
+              "$ref": "#/definitions/CodeType"
+            },
+            {
+              "$ref": "http://www.jsonix.org/jsonschemas/w3c/2001/XMLSchema.jsonschema#/definitions/normalizedString"
+            }
+          ],
+          "propertyType": "element",
+          "elementName": {
+            "localPart": "TaxLevelCode",
+            "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+          }
+        },
+        "taxScheme": {
+          "title": "taxScheme",
+          "anyOf": [
+                      {
+                        "$ref": "#/definitions/IdentifierType"
+                      },
+                      {
+                        "$ref": "http://www.jsonix.org/jsonschemas/w3c/2001/XMLSchema.jsonschema#/definitions/normalizedString"
+                      }
+                    ],
+          "propertyType": "element",
+          "elementName": {
+            "localPart": "TaxScheme",
+            "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+          }
+        }
+      },
+      "typeType": "classInfo",
+      "typeName": {
+        "localPart": "PartyTaxSchemeType",
+        "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+      },
+      "propertiesOrder": [
+        "companyID",
+        "taxLevelCode",
+        "taxScheme"
+      ]
+    },
+    "CustomerPartyType": {
+      "type": "object",
+      "title": "CustomerPartyType",
+      "properties": {
+        "party": {
+          "title": "party",
+          "allOf": [
+            {
+              "$ref": "#/definitions/PartyType"
+            }
+          ],
+          "propertyType": "element",
+          "elementName": {
+            "localPart": "Party",
+            "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+          }
+        },
+        "buyerContact": {
+          "title": "buyerContact",
+          "allOf": [
+            {
+              "$ref": "#/definitions/ContactType"
+            }
+          ],
+          "propertyType": "element",
+          "elementName": {
+            "localPart": "BuyerContact",
+            "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+          }
+        }
+      },
+      "typeType": "classInfo",
+      "typeName": {
+        "localPart": "CustomerPartyType",
+        "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+      },
+      "propertiesOrder": [
+        "party",
+        "buyerContact"
+      ]
+    },
+    "PartyLegalEntityType": {
+      "type": "object",
+      "title": "PartyLegalEntityType",
+      "properties": {
+        "registrationName": {
+          "title": "registrationName",
+          "anyOf": [
+            {
+              "$ref": "#/definitions/TextType"
+            },
+            {
+              "$ref": "http://www.jsonix.org/jsonschemas/w3c/2001/XMLSchema.jsonschema#/definitions/normalizedString"
+            }
+          ],
+          "propertyType": "element",
+          "elementName": {
+            "localPart": "RegistrationName",
+            "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+          }
+        },
+        "companyID": {
+          "title": "companyID",
+          "anyOf": [
+            {
+              "$ref": "#/definitions/IdentifierType"
+            },
+            {
+              "$ref": "http://www.jsonix.org/jsonschemas/w3c/2001/XMLSchema.jsonschema#/definitions/normalizedString"
+            }
+          ],
+          "propertyType": "element",
+          "elementName": {
+            "localPart": "CompanyID",
+            "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+          }
+        }
+      },
+      "typeType": "classInfo",
+      "typeName": {
+        "localPart": "PartyLegalEntityType",
+        "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+      },
+      "propertiesOrder": [
+        "registrationName",
+        "companyID"
+      ]
+    },
+    "UBLExtensionType": {
+      "type": "object",
+      "title": "UBLExtensionType",
+      "required": [
+        "extensionContent"
+      ],
+      "properties": {
+        "id": {
+          "title": "id",
+          "anyOf": [
+            {
+              "$ref": "#/definitions/IdentifierType"
+            },
+            {
+              "$ref": "http://www.jsonix.org/jsonschemas/w3c/2001/XMLSchema.jsonschema#/definitions/normalizedString"
+            }
+          ],
+          "propertyType": "element",
+          "elementName": {
+            "localPart": "ID",
+            "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+          }
+        },
+        "name": {
+          "title": "name",
+          "anyOf": [
+            {
+              "$ref": "#/definitions/TextType"
+            },
+            {
+              "$ref": "http://www.jsonix.org/jsonschemas/w3c/2001/XMLSchema.jsonschema#/definitions/normalizedString"
+            }
+          ],
+          "propertyType": "element",
+          "elementName": {
+            "localPart": "Name",
+            "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+          }
+        },
+        "extensionAgencyID": {
+          "title": "extensionAgencyID",
+          "anyOf": [
+            {
+              "$ref": "#/definitions/IdentifierType"
+            },
+            {
+              "$ref": "http://www.jsonix.org/jsonschemas/w3c/2001/XMLSchema.jsonschema#/definitions/normalizedString"
+            }
+          ],
+          "propertyType": "element",
+          "elementName": {
+            "localPart": "ExtensionAgencyID",
+            "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+          }
+        },
+        "extensionAgencyName": {
+          "title": "extensionAgencyName",
+          "anyOf": [
+            {
+              "$ref": "#/definitions/TextType"
+            },
+            {
+              "$ref": "http://www.jsonix.org/jsonschemas/w3c/2001/XMLSchema.jsonschema#/definitions/normalizedString"
+            }
+          ],
+          "propertyType": "element",
+          "elementName": {
+            "localPart": "ExtensionAgencyName",
+            "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+          }
+        },
+        "extensionVersionID": {
+          "title": "extensionVersionID",
+          "anyOf": [
+            {
+              "$ref": "#/definitions/IdentifierType"
+            },
+            {
+              "$ref": "http://www.jsonix.org/jsonschemas/w3c/2001/XMLSchema.jsonschema#/definitions/normalizedString"
+            }
+          ],
+          "propertyType": "element",
+          "elementName": {
+            "localPart": "ExtensionVersionID",
+            "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+          }
+        },
+        "extensionAgencyURI": {
+          "title": "extensionAgencyURI",
+          "anyOf": [
+            {
+              "$ref": "#/definitions/IdentifierType"
+            },
+            {
+              "$ref": "http://www.jsonix.org/jsonschemas/w3c/2001/XMLSchema.jsonschema#/definitions/normalizedString"
+            }
+          ],
+          "propertyType": "element",
+          "elementName": {
+            "localPart": "ExtensionAgencyURI",
+            "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+          }
+        },
+        "extensionURI": {
+          "title": "extensionURI",
+          "anyOf": [
+            {
+              "$ref": "#/definitions/IdentifierType"
+            },
+            {
+              "$ref": "http://www.jsonix.org/jsonschemas/w3c/2001/XMLSchema.jsonschema#/definitions/normalizedString"
+            }
+          ],
+          "propertyType": "element",
+          "elementName": {
+            "localPart": "ExtensionURI",
+            "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+          }
+        },
+        "extensionReasonCode": {
+          "title": "extensionReasonCode",
+          "anyOf": [
+            {
+              "$ref": "#/definitions/CodeType"
+            },
+            {
+              "$ref": "http://www.jsonix.org/jsonschemas/w3c/2001/XMLSchema.jsonschema#/definitions/normalizedString"
+            }
+          ],
+          "propertyType": "element",
+          "elementName": {
+            "localPart": "ExtensionReasonCode",
+            "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+          }
+        },
+        "extensionReason": {
+          "title": "extensionReason",
+          "anyOf": [
+            {
+              "$ref": "#/definitions/TextType"
+            },
+            {
+              "$ref": "http://www.jsonix.org/jsonschemas/w3c/2001/XMLSchema.jsonschema#/definitions/normalizedString"
+            }
+          ],
+          "propertyType": "element",
+          "elementName": {
+            "localPart": "ExtensionReason",
+            "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+          }
+        },
+        "extensionContent": {
+          "title": "extensionContent",
+          "allOf": [
+            {
+              "$ref": "#/definitions/ExtensionContentType"
+            }
+          ],
+          "propertyType": "element",
+          "elementName": {
+            "localPart": "ExtensionContent",
+            "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+          }
+        }
+      },
+      "typeType": "classInfo",
+      "typeName": {
+        "localPart": "UBLExtensionType",
+        "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+      },
+      "propertiesOrder": [
+        "id",
+        "name",
+        "extensionAgencyID",
+        "extensionAgencyName",
+        "extensionVersionID",
+        "extensionAgencyURI",
+        "extensionURI",
+        "extensionReasonCode",
+        "extensionReason",
+        "extensionContent"
+      ]
+    },
+    "TaxSchemeType": {
+      "type": "object",
+      "title": "TaxSchemeType",
+      "properties": {
+        "id": {
+          "title": "id",
+          "anyOf": [
+            {
+              "$ref": "#/definitions/IdentifierType"
+            },
+            {
+              "$ref": "http://www.jsonix.org/jsonschemas/w3c/2001/XMLSchema.jsonschema#/definitions/normalizedString"
+            }
+          ],
+          "propertyType": "element",
+          "elementName": {
+            "localPart": "ID",
+            "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+          }
+        }
+      },
+      "typeType": "classInfo",
+      "typeName": {
+        "localPart": "TaxSchemeType",
+        "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+      },
+      "propertiesOrder": [
+        "id"
+      ]
+    },
+    "ItemPropertyType": {
+      "type": "object",
+      "title": "ItemPropertyType",
+      "required": [
+        "name"
+      ],
+      "properties": {
+        "name": {
+          "title": "name",
+          "anyOf": [
+            {
+              "$ref": "#/definitions/TextType"
+            },
+            {
+              "$ref": "http://www.jsonix.org/jsonschemas/w3c/2001/XMLSchema.jsonschema#/definitions/normalizedString"
+            }
+          ],
+          "propertyType": "element",
+          "elementName": {
+            "localPart": "Name",
+            "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+          }
+        },
+        "value": {
+          "title": "value",
+          "anyOf": [
+            {
+              "$ref": "#/definitions/TextType"
+            },
+            {
+              "$ref": "http://www.jsonix.org/jsonschemas/w3c/2001/XMLSchema.jsonschema#/definitions/normalizedString"
+            }
+          ],
+          "propertyType": "element",
+          "elementName": {
+            "localPart": "Value",
+            "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+          }
+        }
+      },
+      "typeType": "classInfo",
+      "typeName": {
+        "localPart": "ItemPropertyType",
+        "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+      },
+      "propertiesOrder": [
+        "name",
+        "value"
+      ]
+    },
+    "MonetaryTotalType": {
+      "type": "object",
+      "title": "MonetaryTotalType",
+      "required": [
+        "payableAmount"
+      ],
+      "properties": {
+        "lineExtensionAmount": {
+          "title": "lineExtensionAmount",
+          "anyOf": [
+            {
+              "$ref": "#/definitions/AmountType"
+            },
+            {
+              "$ref": "http://www.jsonix.org/jsonschemas/w3c/2001/XMLSchema.jsonschema#/definitions/normalizedString"
+            }
+          ],
+          "propertyType": "element",
+          "elementName": {
+            "localPart": "LineExtensionAmount",
+            "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+          }
+        },
+        "taxExclusiveAmount": {
+          "title": "taxExclusiveAmount",
+          "anyOf": [
+            {
+              "$ref": "#/definitions/AmountType"
+            },
+            {
+              "$ref": "http://www.jsonix.org/jsonschemas/w3c/2001/XMLSchema.jsonschema#/definitions/normalizedString"
+            }
+          ],
+          "propertyType": "element",
+          "elementName": {
+            "localPart": "TaxExclusiveAmount",
+            "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+          }
+        },
+        "taxInclusiveAmount": {
+          "title": "taxInclusiveAmount",
+          "anyOf": [
+            {
+              "$ref": "#/definitions/AmountType"
+            },
+            {
+              "$ref": "http://www.jsonix.org/jsonschemas/w3c/2001/XMLSchema.jsonschema#/definitions/normalizedString"
+            }
+          ],
+          "propertyType": "element",
+          "elementName": {
+            "localPart": "TaxInclusiveAmount",
+            "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+          }
+        },
+        "allowanceTotalAmount": {
+          "title": "allowanceTotalAmount",
+          "anyOf": [
+            {
+              "$ref": "#/definitions/AmountType"
+            },
+            {
+              "$ref": "http://www.jsonix.org/jsonschemas/w3c/2001/XMLSchema.jsonschema#/definitions/normalizedString"
+            }
+          ],
+          "propertyType": "element",
+          "elementName": {
+            "localPart": "AllowanceTotalAmount",
+            "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+          }
+        },
+        "chargeTotalAmount": {
+          "title": "chargeTotalAmount",
+          "anyOf": [
+            {
+              "$ref": "#/definitions/AmountType"
+            },
+            {
+              "$ref": "http://www.jsonix.org/jsonschemas/w3c/2001/XMLSchema.jsonschema#/definitions/normalizedString"
+            }
+          ],
+          "propertyType": "element",
+          "elementName": {
+            "localPart": "ChargeTotalAmount",
+            "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+          }
+        },
+        "payableAmount": {
+          "title": "payableAmount",
+          "anyOf": [
+            {
+              "$ref": "#/definitions/AmountType"
+            },
+            {
+              "$ref": "http://www.jsonix.org/jsonschemas/w3c/2001/XMLSchema.jsonschema#/definitions/normalizedString"
+            }
+          ],
+          "propertyType": "element",
+          "elementName": {
+            "localPart": "PayableAmount",
+            "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+          }
+        }
+      },
+      "typeType": "classInfo",
+      "typeName": {
+        "localPart": "MonetaryTotalType",
+        "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+      },
+      "propertiesOrder": [
+        "lineExtensionAmount",
+        "taxExclusiveAmount",
+        "taxInclusiveAmount",
+        "allowanceTotalAmount",
+        "chargeTotalAmount",
+        "payableAmount"
+      ]
+    },
+    "TaxTotalType": {
+      "type": "object",
+      "title": "TaxTotalType",
+      "required": [
+        "taxAmount"
+      ],
+      "properties": {
+        "taxAmount": {
+          "title": "taxAmount",
+          "anyOf": [
+            {
+              "$ref": "#/definitions/AmountType"
+            },
+            {
+              "$ref": "http://www.jsonix.org/jsonschemas/w3c/2001/XMLSchema.jsonschema#/definitions/normalizedString"
+            }
+          ],
+          "propertyType": "element",
+          "elementName": {
+            "localPart": "TaxAmount",
+            "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+          }
+        },
+        "taxSubtotal": {
+          "title": "taxSubtotal",
+          "allOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/TaxSubtotalType"
+              },
+              "minItems": 0
+            }
+          ],
+          "propertyType": "element",
+          "elementName": {
+            "localPart": "TaxSubtotal",
+            "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+          }
+        }
+      },
+      "typeType": "classInfo",
+      "typeName": {
+        "localPart": "TaxTotalType",
+        "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+      },
+      "propertiesOrder": [
+        "taxAmount",
+        "taxSubtotal"
+      ]
+    },
+    "ItemType": {
+      "type": "object",
+      "title": "ItemType",
+      "properties": {
+        "description": {
+          "title": "description",
+          "allOf": [
+            {
+              "type": "array",
+              "items": {
+                "anyOf": [
+                  {
+                    "$ref": "#/definitions/TextType"
+                  },
+                  {
+                    "$ref": "http://www.jsonix.org/jsonschemas/w3c/2001/XMLSchema.jsonschema#/definitions/normalizedString"
+                  }
+                ]
+              },
+              "minItems": 0
+            }
+          ],
+          "propertyType": "element",
+          "elementName": {
+            "localPart": "Description",
+            "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+          }
+        },
+        "name": {
+          "title": "name",
+          "anyOf": [
+            {
+              "$ref": "#/definitions/TextType"
+            },
+            {
+              "$ref": "http://www.jsonix.org/jsonschemas/w3c/2001/XMLSchema.jsonschema#/definitions/normalizedString"
+            }
+          ],
+          "propertyType": "element",
+          "elementName": {
+            "localPart": "Name",
+            "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+          }
+        },
+        "additionalInformation": {
+          "title": "additionalInformation",
+          "allOf": [
+            {
+              "type": "array",
+              "items": {
+                "anyOf": [
+                  {
+                    "$ref": "#/definitions/TextType"
+                  },
+                  {
+                    "$ref": "http://www.jsonix.org/jsonschemas/w3c/2001/XMLSchema.jsonschema#/definitions/normalizedString"
+                  }
+                ]
+              },
+              "minItems": 0
+            }
+          ],
+          "propertyType": "element",
+          "elementName": {
+            "localPart": "AdditionalInformation",
+            "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+          }
+        },
+        "sellersItemIdentification": {
+          "title": "sellersItemIdentification",
+          "anyOf": [
+                      {
+                        "$ref": "#/definitions/IdentifierType"
+                      },
+                      {
+                        "$ref": "http://www.jsonix.org/jsonschemas/w3c/2001/XMLSchema.jsonschema#/definitions/normalizedString"
+                      }
+                    ],
+          "propertyType": "element",
+          "elementName": {
+            "localPart": "SellersItemIdentification",
+            "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+          }
+        },
+        "standardItemIdentification": {
+          "title": "standardItemIdentification",
+          "anyOf": [
+                      {
+                        "$ref": "#/definitions/IdentifierType"
+                      },
+                      {
+                        "$ref": "http://www.jsonix.org/jsonschemas/w3c/2001/XMLSchema.jsonschema#/definitions/normalizedString"
+                      }
+                    ],
+          "propertyType": "element",
+          "elementName": {
+            "localPart": "StandardItemIdentification",
+            "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+          }
+        },
+        "commodityClassification": {
+          "title": "commodityClassification",
+          "allOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/CommodityClassificationType"
+              },
+              "minItems": 0
+            }
+          ],
+          "propertyType": "element",
+          "elementName": {
+            "localPart": "CommodityClassification",
+            "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+          }
+        },
+        "additionalItemProperty": {
+          "title": "additionalItemProperty",
+          "allOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ItemPropertyType"
+              },
+              "minItems": 0
+            }
+          ],
+          "propertyType": "element",
+          "elementName": {
+            "localPart": "AdditionalItemProperty",
+            "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+          }
+        }
+      },
+      "typeType": "classInfo",
+      "typeName": {
+        "localPart": "ItemType",
+        "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+      },
+      "propertiesOrder": [
+        "description",
+        "name",
+        "additionalInformation",
+        "sellersItemIdentification",
+        "standardItemIdentification",
+        "commodityClassification",
+        "additionalItemProperty"
+      ]
+    },
+    "DocumentReferenceType": {
+      "type": "object",
+      "title": "DocumentReferenceType",
+      "required": [
+        "id"
+      ],
+      "properties": {
+        "id": {
+          "title": "id",
+          "anyOf": [
+            {
+              "$ref": "#/definitions/IdentifierType"
+            },
+            {
+              "$ref": "http://www.jsonix.org/jsonschemas/w3c/2001/XMLSchema.jsonschema#/definitions/normalizedString"
+            }
+          ],
+          "propertyType": "element",
+          "elementName": {
+            "localPart": "ID",
+            "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+          }
+        },
+        "documentType": {
+          "title": "documentType",
+          "anyOf": [
+            {
+              "$ref": "#/definitions/TextType"
+            },
+            {
+              "$ref": "http://www.jsonix.org/jsonschemas/w3c/2001/XMLSchema.jsonschema#/definitions/normalizedString"
+            }
+          ],
+          "propertyType": "element",
+          "elementName": {
+            "localPart": "DocumentType",
+            "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+          }
+        },
+        "attachment": {
+          "title": "attachment",
+          "allOf": [
+            {
+              "$ref": "#/definitions/AttachmentType"
+            }
+          ],
+          "propertyType": "element",
+          "elementName": {
+            "localPart": "Attachment",
+            "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+          }
+        }
+      },
+      "typeType": "classInfo",
+      "typeName": {
+        "localPart": "DocumentReferenceType",
+        "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+      },
+      "propertiesOrder": [
+        "id",
+        "documentType",
+        "attachment"
+      ]
+    },
+    "BranchType": {
+      "type": "object",
+      "title": "BranchType",
+      "properties": {
+        "id": {
+          "title": "id",
+          "anyOf": [
+            {
+              "$ref": "#/definitions/IdentifierType"
+            },
+            {
+              "$ref": "http://www.jsonix.org/jsonschemas/w3c/2001/XMLSchema.jsonschema#/definitions/normalizedString"
+            }
+          ],
+          "propertyType": "element",
+          "elementName": {
+            "localPart": "ID",
+            "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+          }
+        },
+        "name": {
+          "title": "name",
+          "anyOf": [
+            {
+              "$ref": "#/definitions/TextType"
+            },
+            {
+              "$ref": "http://www.jsonix.org/jsonschemas/w3c/2001/XMLSchema.jsonschema#/definitions/normalizedString"
+            }
+          ],
+          "propertyType": "element",
+          "elementName": {
+            "localPart": "Name",
+            "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+          }
+        }
+      },
+      "typeType": "classInfo",
+      "typeName": {
+        "localPart": "BranchType",
+        "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+      },
+      "propertiesOrder": [
+        "id",
+        "name"
+      ]
+    },
+    "TextType": {
+      "type": "object",
+      "title": "TextType",
+      "properties": {
+        "value": {
+          "title": "value",
+          "allOf": [
+            {
+              "$ref": "http://www.jsonix.org/jsonschemas/w3c/2001/XMLSchema.jsonschema#/definitions/string"
+            }
+          ],
+          "propertyType": "value"
+        },
+        "languageID": {
+          "title": "languageID",
+          "allOf": [
+            {
+              "$ref": "http://www.jsonix.org/jsonschemas/w3c/2001/XMLSchema.jsonschema#/definitions/language"
+            }
+          ],
+          "propertyType": "attribute",
+          "attributeName": {
+            "localPart": "languageID",
+            "namespaceURI": ""
+          }
+        },
+        "languageLocaleID": {
+          "title": "languageLocaleID",
+          "allOf": [
+            {
+              "$ref": "http://www.jsonix.org/jsonschemas/w3c/2001/XMLSchema.jsonschema#/definitions/normalizedString"
+            }
+          ],
+          "propertyType": "attribute",
+          "attributeName": {
+            "localPart": "languageLocaleID",
+            "namespaceURI": ""
+          }
+        }
+      },
+      "typeType": "classInfo",
+      "typeName": {
+        "localPart": "TextType",
+        "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+      },
+      "propertiesOrder": [
+        "value",
+        "languageID",
+        "languageLocaleID"
+      ]
+    },
+    "CountryType": {
+      "type": "object",
+      "title": "CountryType",
+      "properties": {
+        "identificationCode": {
+          "title": "identificationCode",
+          "anyOf": [
+            {
+              "$ref": "#/definitions/CodeType"
+            },
+            {
+              "$ref": "http://www.jsonix.org/jsonschemas/w3c/2001/XMLSchema.jsonschema#/definitions/normalizedString"
+            }
+          ],
+          "propertyType": "element",
+          "elementName": {
+            "localPart": "IdentificationCode",
+            "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+          }
+        }
+      },
+      "typeType": "classInfo",
+      "typeName": {
+        "localPart": "CountryType",
+        "namespaceURI": "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+      },
+      "propertiesOrder": [
+        "identificationCode"
+      ]
+    }
+  }
+}

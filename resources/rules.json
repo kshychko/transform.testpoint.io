@@ -1,0 +1,483 @@
+[
+  {
+    "type": "path",
+    "attributeValueName": "schemeID",
+    "isIdentifier": true,
+    "childElement": "id",
+    "path": [
+      "partyIdentification"
+    ],
+    "lists":
+    {
+      "values": {
+        "urn:oasis:names:tc:ebcore:partyid-type:iso6523:088": "GLN",
+        "urn:oasis:names:tc:ebcore:partyid-type:iso6523:0151": "ABN"
+      },
+      "currentList": {
+        "schemeAgencyID":"GS1"
+      },
+      "deprecatedLists": []
+    }
+  },
+  {
+    "type": "path",
+    "attributeValueName": "schemeID",
+    "isIdentifier": true,
+    "path": [
+      "companyID"
+    ],
+    "lists":
+    {
+      "values": {
+        "urn:oasis:names:tc:ebcore:partyid-type:iso6523:088": "GLN",
+        "urn:oasis:names:tc:ebcore:partyid-type:iso6523:0151": "ABN"
+      },
+      "currentList": {
+        "schemeAgencyID":"GS1"
+      },
+      "deprecatedLists": []
+    }
+  },
+  {
+    "type": "path",
+    "attributeValueName": "schemeID",
+    "isIdentifier": true,
+    "childElement": "id",
+    "path": [
+      "standardItemIdentification"
+    ],
+    "lists":
+    {
+      "values": {
+        "urn:oasis:names:tc:ebcore:partyid-type:iso6523:0060": "GTIN",
+        "GTIN": "GTIN"
+      },
+      "currentList": {
+        "schemeAgencyID":"GS1"
+      },
+      "deprecatedLists": []
+    }
+  },
+  {
+    "type": "path",
+    "attributeValueName": "value",
+    "path": [
+      "documentCurrencyCode",
+      "taxCurrencyCode",
+      "pricingCurrencyCode",
+      "paymentCurrencyCode",
+      "paymentAlternativeCurrencyCode",
+      "requestedInvoiceCurrencyCode",
+      "sourceCurrencyCode",
+      "currencyCode"
+    ],
+    "lists":
+    {
+      "values": {
+        "AUD": "Australian Dollar"
+      },
+      "currentList": {
+        "listID": "ISO 4217 Alpha",
+        "listAgencyID": "5",
+        "listAgencyName": "International Organization for Standardization",
+        "listName": "Currency Code",
+        "listVersionID": "2012-01-12",
+        "name": "CurrencyCode",
+        "languageID": "en",
+        "listURI": "http://docs.oasis-open.org/ubl/os-UBL-2.1/cl/gc/default/CurrencyCode-2.1.gc",
+        "listSchemeURI": "urn:un:unece:uncefact:codelist:standard:5:ISO42173A"
+      },
+      "deprecatedLists": [
+        {
+          "listAgencyID": "6",
+          "listAgencyName": "United Nations Economic Commission for Europe",
+          "listName": "Currency",
+          "listVersionID": "2001",
+          "listURI": "http://docs.oasis-open.org/ubl/os-UBL-2.0-update/cl/gc/cefact/CurrencyCode-2.0.gc",
+          "listSchemeURI": "urn:un:unece:uncefact:codelist:specification:54217"
+        }
+      ]
+    }
+  },
+  {
+    "type": "path",
+    "attributeValueName": "id",
+    "path": [
+      "orderReference",
+      "sellersItemIdentification",
+      "taxScheme"
+    ],
+    "lists":
+      {
+        "values": null,
+        "currentList": {
+          },
+        "deprecatedLists": []
+      }
+  },
+  {
+    "type": "path",
+    "attributeValueName": "value",
+    "path": [
+      "paymentMeansCode"
+    ],
+    "lists":
+    {
+      "values": {
+        "2": "Automated clearing house credit",
+        "30": "Credit transfer"
+      },
+      "currentList": {
+        "listID": "UN/ECE 4461",
+        "listAgencyID": "6",
+        "listAgencyName": "United Nations Economic Commission for Europe",
+        "listName": "Payment Means Code",
+        "listVersionID": "D10B",
+        "name": "PaymentMeansCode",
+        "languageID": "en",
+        "listURI": "http://docs.oasis-open.org/ubl/os-UBL-2.1/cl/gc/default/PaymentMeansCode-2.1.gc",
+        "listSchemeURI": "urn:un:unece:uncefact:codelist:standard:UNECE:PaymentMeansCode"
+      },
+      "deprecatedLists": [
+        {
+          "listAgencyID": "6",
+          "listName": "Payment Means",
+          "listVersionID": "D03A",
+          "listURI": "http://docs.oasis-open.org/ubl/os-UBL-2.0-update/cl/gc/default/PaymentMeansCode-2.0.gc",
+          "listSchemeURI": "urn:oasis:names:specification:ubl:codelist:gc:PaymentMeansCode"
+        }
+      ]
+    }
+
+  },
+  {
+    "type": "path",
+    "attributeValueName": "value",
+    "path": [
+      "invoiceTypeCode"
+    ],
+    "lists":
+    {
+      "values": {
+        "80": "Debit note related to goods or services",
+        "81": "Credit note related to goods or services",
+        "105": "Purchase order",
+        "220": "Order",
+        "223": "Lease order",
+        "224": "Rush order",
+        "245": "Delivery release",
+        "315": "Contract",
+        "320": "Acknowledgement of order",
+        "325": "Proforma invoice",
+        "326": "Partial invoice",
+        "380": "Commercial invoice",
+        "388": "Tax invoice",
+        "389": "Recipient created tax invoice",
+        "393": "Factored invoice",
+        "394": "Lease invoice",
+        "395": "Consignment invoice",
+        "398": "Cross docking despatch advice",
+        "399": "Transshipment despatch advice",
+        "455": "Extended credit advice",
+        "481": "Remittance advice",
+        "533": "Original accounting voucher",
+        "534": "Copy accounting voucher",
+        "640": "Delivery order"
+      },
+      "currentList": {
+        "listAgencyID": "6",
+        "listAgencyName": "International Organization for Standardization",
+        "listName": "Document Type Code",
+        "listVersionID": "D10B",
+        "name": "DocumentTypeCode",
+        "languageID": "en",
+        "listURI": "http://docs.oasis-open.org/ubl/os-UBL-2.1/cl/gc/special-purpose/DocumentTypeCode-2.1.gc",
+        "listSchemeURI": "urn:un:unece:uncefact:codelist:standard:UNECE:DocumentNameCodeAccounting"
+      },
+      "deprecatedLists": []
+    }
+
+  },
+  {
+    "type": "path",
+    "attributeValueName": "value",
+    "childElement":"identificationCode",
+    "path": [
+      "country"
+    ],
+    "lists":
+    {
+      "values": {
+        "AD" : "ANDORRA",
+        "AE" : "UNITED ARAB EMIRATES",
+        "AF" : "AFGHANISTAN",
+        "AG" : "ANTIGUA AND BARBUDA",
+        "AI" : "ANGUILLA",
+        "AL" : "ALBANIA",
+        "AM" : "ARMENIA",
+        "AO" : "ANGOLA",
+        "AQ" : "ANTARCTICA",
+        "AR" : "ARGENTINA",
+        "AS" : "AMERICAN SAMOA",
+        "AT" : "AUSTRIA",
+        "AU" : "AUSTRALIA",
+        "AW" : "ARUBA",
+        "AX" : "ÅLAND ISLANDS",
+        "AZ" : "AZERBAIJAN",
+        "BA" : "BOSNIA AND HERZEGOVINA",
+        "BB" : "BARBADOS",
+        "BD" : "BANGLADESH",
+        "BE" : "BELGIUM",
+        "BF" : "BURKINA FASO",
+        "BG" : "BULGARIA",
+        "BH" : "BAHRAIN",
+        "BI" : "BURUNDI",
+        "BJ" : "BENIN",
+        "BM" : "BERMUDA",
+        "BN" : "BRUNEI DARUSSALAM",
+        "BO" : "BOLIVIA, PLURINATIONAL STATE OF",
+        "BQ" : "BONAIRE, SINT EUSTATIUS AND SABA",
+        "BR" : "BRAZIL",
+        "BS" : "BAHAMAS",
+        "BT" : "BHUTAN",
+        "BV" : "BOUVET ISLAND",
+        "BW" : "BOTSWANA",
+        "BY" : "BELARUS",
+        "BZ" : "BELIZE",
+        "CA" : "CANADA",
+        "CC" : "COCOS (KEELING) ISLANDS",
+        "CD" : "CONGO, THE DEMOCRATIC REPUBLIC OF THE",
+        "CF" : "CENTRAL AFRICAN REPUBLIC",
+        "CG" : "CONGO",
+        "CH" : "SWITZERLAND",
+        "CI" : "COTE D'IVOIRE",
+        "CK" : "COOK ISLANDS",
+        "CL" : "CHILE",
+        "CM" : "CAMEROON",
+        "CN" : "CHINA",
+        "CO" : "COLOMBIA",
+        "CR" : "COSTA RICA",
+        "CU" : "CUBA",
+        "CV" : "CAPE VERDE",
+        "CW" : "CURACAO",
+        "CX" : "CHRISTMAS ISLAND",
+        "CY" : "CYPRUS",
+        "CZ" : "CZECH REPUBLIC",
+        "DE" : "GERMANY",
+        "DJ" : "DJIBOUTI",
+        "DK" : "DENMARK",
+        "DM" : "DOMINICA",
+        "DO" : "DOMINICAN REPUBLIC",
+        "DZ" : "ALGERIA",
+        "EC" : "ECUADOR",
+        "EE" : "ESTONIA",
+        "EG" : "EGYPT",
+        "EH" : "WESTERN SAHARA",
+        "ER" : "ERITREA",
+        "ES" : "SPAIN",
+        "ET" : "ETHIOPIA",
+        "FI" : "FINLAND",
+        "FJ" : "FIJI",
+        "FK" : "FALKLAND ISLANDS (MALVINAS)",
+        "FM" : "MICRONESIA, FEDERATED STATES OF",
+        "FO" : "FAROE ISLANDS",
+        "FR" : "FRANCE",
+        "GA" : "GABON",
+        "GB" : "UNITED KINGDOM",
+        "GD" : "GRENADA",
+        "GE" : "GEORGIA",
+        "GF" : "FRENCH GUIANA",
+        "GG" : "GUERNESEY",
+        "GH" : "GHANA",
+        "GI" : "GIBRALTAR",
+        "GL" : "GREENLAND",
+        "GM" : "GAMBIA",
+        "GN" : "GUINEA",
+        "GP" : "GUADELOUPE",
+        "GQ" : "EQUATORIAL GUINEA",
+        "GR" : "GREECE",
+        "GS" : "SOUTH GEORGIA AND THE SOUTH SANDWICH ISLANDS",
+        "GT" : "GUATEMALA",
+        "GU" : "GUAM",
+        "GW" : "GUINEA-BISSAU",
+        "GY" : "GUYANA",
+        "HK" : "HONG KONG",
+        "HM" : "HEARD ISLAND AND MCDONALD ISLANDS",
+        "HN" : "HONDURAS",
+        "HR" : "CROATIA",
+        "HT" : "HAITI",
+        "HU" : "HUNGARY",
+        "ID" : "INDONESIA",
+        "IE" : "IRELAND",
+        "IL" : "ISRAEL",
+        "IM" : "ISLE OF MAN",
+        "IN" : "INDIA",
+        "IO" : "BRITISH INDIAN OCEAN TERRITORY",
+        "IQ" : "IRAQ",
+        "IR" : "IRAN, ISLAMIC REPUBLIC OF",
+        "IS" : "ICELAND",
+        "IT" : "ITALY",
+        "JE" : "JERSEY",
+        "JM" : "JAMAICA",
+        "JO" : "JORDAN",
+        "JP" : "JAPAN",
+        "KE" : "KENYA",
+        "KG" : "KYRGYZSTAN",
+        "KH" : "CAMBODIA",
+        "KI" : "KIRIBATI",
+        "KM" : "COMOROS",
+        "KN" : "SAINT KITTS AND NEVIS",
+        "KP" : "KOREA, DEMOCRATIC PEOPLE'S REPUBLIC OF",
+        "KR" : "KOREA, REPUBLIC OF",
+        "KW" : "KUWAIT",
+        "KY" : "CAYMAN ISLANDS",
+        "KZ" : "KAZAKHSTAN",
+        "LA" : "LAO PEOPLE'S DEMOCRATIC REPUBLIC",
+        "LB" : "LEBANON",
+        "LC" : "SAINT LUCIA",
+        "LI" : "LIECHTENSTEIN",
+        "LK" : "SRI LANKA",
+        "LR" : "LIBERIA",
+        "LS" : "LESOTHO",
+        "LT" : "LITHUANIA",
+        "LU" : "LUXEMBOURG",
+        "LV" : "LATVIA",
+        "LY" : "LIBYA",
+        "MA" : "MOROCCO",
+        "MC" : "MONACO",
+        "MD" : "MOLDOVA, REPUBLIC OF",
+        "ME" : "MONTENEGRO",
+        "MG" : "MADAGASCAR",
+        "MH" : "MARSHALL ISLANDS",
+        "MK" : "MACEDONIA, THE FORMER YUGOSLAV REPUBLIC OF",
+        "ML" : "MALI",
+        "MM" : "MYANMAR",
+        "MN" : "MONGOLIA",
+        "MO" : "MACAO",
+        "MP" : "NORTHERN MARIANA ISLANDS",
+        "MQ" : "MARTINIQUE",
+        "MR" : "MAURITANIA",
+        "MS" : "MONTSERRAT",
+        "MT" : "MALTA",
+        "MU" : "MAURITIUS",
+        "MV" : "MALDIVES",
+        "MW" : "MALAWI",
+        "MX" : "MEXICO",
+        "MY" : "MALAYSIA",
+        "MZ" : "MOZAMBIQUE",
+        "NA" : "NAMIBIA",
+        "NC" : "NEW CALEDONIA",
+        "NE" : "NIGER",
+        "NF" : "NORFOLK ISLAND",
+        "NG" : "NIGERIA",
+        "NI" : "NICARAGUA",
+        "NL" : "NETHERLANDS",
+        "NO" : "NORWAY",
+        "NP" : "NEPAL",
+        "NR" : "NAURU",
+        "NU" : "NIUE",
+        "NZ" : "NEW ZEALAND",
+        "OM" : "OMAN",
+        "PA" : "PANAMA",
+        "PE" : "PERU",
+        "PF" : "FRENCH POLYNESIA",
+        "PG" : "PAPUA NEW GUINEA",
+        "PH" : "PHILIPPINES",
+        "PK" : "PAKISTAN",
+        "PL" : "POLAND",
+        "PM" : "SAINT PIERRE AND MIQUELON",
+        "PN" : "PITCAIRN",
+        "PR" : "PUERTO RICO",
+        "PS" : "PALESTINIAN TERRITORY, OCCUPIED",
+        "PT" : "PORTUGAL",
+        "PW" : "PALAU",
+        "PY" : "PARAGUAY",
+        "QA" : "QATAR",
+        "RE" : "REUNION",
+        "RO" : "ROMANIA",
+        "RS" : "SERBIA",
+        "RU" : "RUSSIAN FEDERATION",
+        "RW" : "RWANDA",
+        "SA" : "SAUDI ARABIA",
+        "SB" : "SOLOMON ISLANDS",
+        "SC" : "SEYCHELLES",
+        "SD" : "SUDAN",
+        "SE" : "SWEDEN",
+        "SG" : "SINGAPORE",
+        "SH" : "SAINT HELENA",
+        "SI" : "SLOVENIA",
+        "SJ" : "SVALBARD AND JAN MAYEN",
+        "SK" : "SLOVAKIA",
+        "SL" : "SIERRA LEONE",
+        "SM" : "SAN MARINO",
+        "SN" : "SENEGAL",
+        "SO" : "SOMALIA",
+        "SR" : "SURINAME",
+        "SS" : "SOUTH SUDAN",
+        "ST" : "SAO TOME AND PRINCIPE",
+        "SV" : "EL SALVADOR",
+        "SX" : "SINT MAARTEN (DUTCH PART)",
+        "SY" : "SYRIAN ARAB REPUBLIC",
+        "SZ" : "SWAZILAND",
+        "TC" : "TURKS AND CAICOS ISLANDS",
+        "TD" : "CHAD",
+        "TF" : "FRENCH SOUTHERN TERRITORIES",
+        "TG" : "TOGO",
+        "TH" : "THAILAND",
+        "TJ" : "TAJIKISTAN",
+        "TK" : "TOKELAU",
+        "TL" : "TIMOR-LESTE",
+        "TM" : "TURKMENISTAN",
+        "TN" : "TUNISIA",
+        "TO" : "TONGA",
+        "TR" : "TURKEY",
+        "TT" : "TRINIDAD AND TOBAGO",
+        "TV" : "TUVALU",
+        "TW" : "TAIWAN, PROVINCE OF CHINA",
+        "TZ" : "TANZANIA, UNITED REPUBLIC OF",
+        "UA" : "UKRAINE",
+        "UG" : "UGANDA",
+        "UM" : "UNITED STATES MINOR OUTLYING ISLANDS",
+        "US" : "UNITED STATES",
+        "UY" : "URUGUAY",
+        "UZ" : "UZBEKISTAN",
+        "VA" : "HOLY SEE (VATICAN CITY STATE)",
+        "VC" : "SAINT VINCENT AND THE GRENADINES",
+        "VE" : "VENEZUELA, BOLIVARIAN REPUBLIC OF",
+        "VG" : "VIRGIN ISLANDS, BRITISH",
+        "VI" : "VIRGIN ISLANDS, U.S.",
+        "VN" : "VIET NAM",
+        "VU" : "VANUATU",
+        "WF" : "WALLIS AND FUTUNA",
+        "WS" : "SAMOA",
+        "YE" : "YEMEN",
+        "YT" : "MAYOTTE",
+        "ZA" : "SOUTH AFRICA",
+        "ZM" : "ZAMBIA",
+        "ZW" : "ZIMBABWE"
+      },
+      "currentList": {
+        "listAgencyID": "5",
+        "listAgencyName": "International Organization for Standardization",
+        "listName": "Country Identification Code",
+        "listVersionID": "SecondEdition2006VI-12",
+        "name": "CountryIdentificationCode",
+        "languageID": "en",
+        "listURI": "http://docs.oasis-open.org/ubl/os-UBL-2.1/cl/gc/default/CountryIdentificationCode-2.1.gc",
+        "listSchemeURI": "urn:un:unece:uncefact:identifierlist:standard:5:ISO316612A"
+      },
+      "deprecatedLists": [
+        {
+          "listID": "ISO3166-1",
+          "listAgencyID": "6",
+          "listAgencyName": "United Nations Economic Commission for Europe",
+          "listName": "Country",
+          "listVersionID": "0.3",
+          "languageID": "en",
+          "listURI": "http://docs.oasis-open.org/ubl/os-UBL-2.0-update/cl/gc/default/CountryIdentificationCode-2.0.gc",
+          "listSchemeURI": "urn:oasis:names:specification:ubl:codelist:gc:CountryIdentificationCode"
+        }
+      ]
+    }
+  }
+]

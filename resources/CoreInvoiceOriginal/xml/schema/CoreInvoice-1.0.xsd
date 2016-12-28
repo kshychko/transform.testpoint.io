@@ -1,0 +1,1681 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Library:           DBC Core Invoice 1.0 Dev
+                     http://resources.digitalbusinesscouncil.com.au/dbc/einvoicing/doctype/core-invoice/xsd/current/dbc-ci-1.0/
+  Release Date:      08 June 2016
+  Module:            DBC-AU/xsdrt/maindoc/CoreInvoice-1.0.xsd
+  Generated on:      2016-08-18 01:14z
+  Copyright (c) DBC 2016. All Rights Reserved.
+-->
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+            targetNamespace="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2-ausdigital"
+            elementFormDefault="qualified"
+            attributeFormDefault="unqualified"
+            version="2.1">
+    <xsd:element name="Invoice" type="InvoiceType">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="en">A document used to request payment.</xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+    <xsd:complexType name="InvoiceType">
+        <xsd:sequence>
+            <xsd:element name="UBLExtensions" type="UBLExtensionsType" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation>A container for all extensions present in the document.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="UBLVersionID" type="IdentifierType" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation>Identifies the earliest version of the UBL 2 schema for this document type that
+                        defines all of the elements that might be encountered in the current instance.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="CustomizationID" type="IdentifierType" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation>Identifies a user-defined customization of UBL for a specific use. Identifies the
+                        specification of content and rules that apply to the transaction. Identifying the
+                        customisation/implementation guide/contextualization of the syntax message and its extension
+                        that applies to the invoice transaction, enables the receiver to apply the correct validation to
+                        the received document as well as to route the document to an appropriate service for processing.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="ProfileID" type="IdentifierType" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation>Identifies a user-defined profile of the customization of UBL being used.
+                        Identifies the DBC profile or business process context in which the transaction appears.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="ProfileExecutionID" type="IdentifierType" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        Identifies an instance of executing a profile, to associate all transactions in a collaboration allowing control of its relation to other documents exchanged as part of the same process.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="ID" type="IdentifierType" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation>An identifier for this document, assigned by the sender. An invoice identifier
+                        enables positive referencing the document instance for various purposes including referencing
+                        between documents that are part of the same process.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="CopyIndicator" type="IndicatorType" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation>Indicates whether this document is a copy (true) or not (false). A copy indicator
+                        is used as part of duplicate detection detailing that this is a copy of a document previously
+                        and not a duplicate.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="IssueDate" type="DateType" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation>The date, assigned by the sender, on which this document was issued. The date on
+                        which the Invoice was created.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="DueDate" type="DateType" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation>The date on which Invoice is due.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="InvoiceTypeCode" type="CodeType" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation>A code signifying the type of the Invoice. The code used must be easily
+                        accessible and converted to English in accordance with terminology required by GST legislation.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="Note" type="TextType" minOccurs="0" maxOccurs="unbounded">
+                <xsd:annotation>
+                    <xsd:documentation>Free-form text pertinent to this document, conveying information that is not
+                        contained explicitly in other structures. This can be notes or other similar information for
+                        which the invoice specification does not contain suitable qualified elements such as the terms
+                        of agreement for an RCTI.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="DocumentCurrencyCode" type="CodeType" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation>A code signifying the default currency for this document. For domestic Invoicing
+                        this will be Australian Dollars in the majority of cases, but it is possible to use other
+                        currencies.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="BuyerReference" type="TextType" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation>A reference provided by the buyer used for internal routing of the document.
+                        Identifies where the Buyer may allocate the relevant transaction in their financial reports.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="InvoicePeriod" type="PeriodType" minOccurs="0" maxOccurs="unbounded">
+                <xsd:annotation>
+                    <xsd:documentation>A period to which the Invoice applies.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="OrderReference" type="OrderReferenceType" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation>A reference to the Order with which this Invoice is associated. An Order is a
+                        Document used to order Items issued by the Buyer. To facilitate Invoice matching an Invoice may
+                        contain a reference to the Order that the invoice relates to. An invoice may only reference one
+                        Order.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="DespatchDocumentReference" type="DocumentReferenceType"
+                         minOccurs="0"
+                         maxOccurs="unbounded">
+                <xsd:annotation>
+                    <xsd:documentation>A reference to a Despatch Advice associated with this document. A Document used
+                        to describe the sending of a delivery of Items.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="ReceiptDocumentReference" type="DocumentReferenceType"
+                         minOccurs="0"
+                         maxOccurs="unbounded">
+                <xsd:annotation>
+                    <xsd:documentation>A reference to a Receipt Advice associated with this document. A Document used to
+                        describe the acceptance of delivery of Items.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="ContractDocumentReference" type="DocumentReferenceType"
+                         minOccurs="0"
+                         maxOccurs="unbounded">
+                <xsd:annotation>
+                    <xsd:documentation>A reference to a contract associated with this document. A business or trading
+                        agreement.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="AdditionalDocumentReference" type="DocumentReferenceType"
+                         minOccurs="0"
+                         maxOccurs="unbounded">
+                <xsd:annotation>
+                    <xsd:documentation>A reference to an additional document associated with this document. A previously
+                        issued Invoice.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="AccountingSupplierParty" type="SupplierPartyType" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation>The accounting supplier party. The Party responsible for providing goods or
+                        services to the Buyer.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="AccountingCustomerParty" type="CustomerPartyType" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation>The accounting customer party. The Party that procures goods or services.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="PayeeParty" type="PartyType" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation>The payee. The Party that receives the Payment.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="Delivery" type="DeliveryType" minOccurs="0" maxOccurs="unbounded">
+                <xsd:annotation>
+                    <xsd:documentation>A delivery associated with this document.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="PaymentMeans" type="PaymentMeansType" minOccurs="0" maxOccurs="unbounded">
+                <xsd:annotation>
+                    <xsd:documentation>Expected means of payment.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="AllowanceCharge" type="AllowanceChargeType" minOccurs="0" maxOccurs="unbounded">
+                <xsd:annotation>
+                    <xsd:documentation>A discount or charge that applies to a price component.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="TaxTotal" type="TaxTotalType" minOccurs="0" maxOccurs="unbounded">
+                <xsd:annotation>
+                    <xsd:documentation>The total amount of a specific type of tax.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="LegalMonetaryTotal" type="MonetaryTotalType" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation>The total amount payable on the Invoice, including Allowances, Charges, and
+                        Taxes.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="InvoiceLine" type="InvoiceLineType" minOccurs="1" maxOccurs="unbounded">
+                <xsd:annotation>
+                    <xsd:documentation>A line describing an invoice item.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="UBLExtensionsType">
+        <xsd:annotation>
+            <xsd:documentation>
+                A container for all extensions present in the document.
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="UBLExtension" type="UBLExtensionType" minOccurs="1" maxOccurs="unbounded">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        A single extension for private use.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="UBLExtensionType">
+        <xsd:annotation>
+            <xsd:documentation>
+                A single extension for private use.
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="ID" type="IdentifierType" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        An identifier for the Extension assigned by the creator of the extension.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="Name" type="TextType" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        A name for the Extension assigned by the creator of the extension.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="ExtensionAgencyID" type="IdentifierType" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        An agency that maintains one or more Extensions.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="ExtensionAgencyName" type="TextType" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        The name of the agency that maintains the Extension.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="ExtensionVersionID" type="IdentifierType" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        The version of the Extension.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="ExtensionAgencyURI" type="IdentifierType" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        A URI for the Agency that maintains the Extension.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="ExtensionURI" type="IdentifierType" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        A URI for the Extension.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="ExtensionReasonCode" type="CodeType" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        A code for reason the Extension is being included.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="ExtensionReason" type="TextType" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        A description of the reason for the Extension.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="ExtensionContent" type="ExtensionContentType" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        The definition of the extension content.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="ExtensionContentType">
+        <xsd:sequence>
+            <xsd:any namespace="##other" processContents="lax"
+                     minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        Any element in any namespace other than the UBL extension
+                        namespace is allowed to be the apex element of an extension.
+                        Only those elements found in the UBL schemas and in the
+                        trees of schemas imported in this module are validated.
+                        Any element for which there is no schema declaration in any
+                        of the trees of schemas passes validation and is not
+                        treated as a schema constraint violation.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:any>
+        </xsd:sequence>
+    </xsd:complexType>
+
+
+    <!-- ===== CCT: IdentifierType ===== -->
+    <!-- =================================================================== -->
+    <xsd:complexType name="IdentifierType">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="en">A character string to identify and distinguish uniquely, one instance of an
+                object in an identification scheme from all other objects in the same scheme together with relevant
+                supplementary information.
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:extension base="xsd:normalizedString">
+                <xsd:attribute name="schemeID" type="xsd:normalizedString" use="optional">
+                    <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+                            The identification of the identification scheme.
+                        </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:attribute>
+                <xsd:attribute name="schemeName" type="xsd:string" use="optional">
+                    <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+                            The name of the identification scheme.
+                        </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:attribute>
+                <xsd:attribute name="schemeAgencyID" type="xsd:normalizedString" use="optional">
+                    <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+                            The identification of the agency that maintains the identification scheme.
+                        </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:attribute>
+                <xsd:attribute name="schemeAgencyName" type="xsd:string" use="optional">
+                    <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+                            The name of the agency that maintains the identification scheme.
+                        </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:attribute>
+                <xsd:attribute name="schemeVersionID" type="xsd:normalizedString" use="optional">
+                    <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+                            The version of the identification scheme.
+                        </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:attribute>
+                <xsd:attribute name="schemeDataURI" type="xsd:anyURI" use="optional">
+                    <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+                            The Uniform Resource Identifier that identifies where the identification scheme data is
+                            located.
+                        </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:attribute>
+                <xsd:attribute name="schemeURI" type="xsd:anyURI" use="optional">
+                    <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+                            The Uniform Resource Identifier that identifies where the identification scheme is located.
+                        </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:attribute>
+            </xsd:extension>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+    <xsd:complexType name="DateType">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="en">
+                One calendar day according the Gregorian calendar.
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:extension base="xsd:date"/>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+    <!-- ===== CCT: CodeType ===== -->
+    <!-- =================================================================== -->
+    <xsd:complexType name="CodeType">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="en">
+                A character string (letters, figures, or symbols) that for brevity and/or language independence may be
+                used to represent or replace a definitive value or text of an attribute together with relevant
+                supplementary information.
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:extension base="xsd:normalizedString">
+                <xsd:attribute name="listID" type="xsd:normalizedString" use="optional">
+                    <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+                            The identification of a list of codes.
+                        </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:attribute>
+                <xsd:attribute name="listAgencyID" type="xsd:normalizedString" use="optional">
+                    <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+                            An agency that maintains one or more lists of codes.
+                        </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:attribute>
+                <xsd:attribute name="listAgencyName" type="xsd:string" use="optional">
+                    <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+                            The name of the agency that maintains the list of codes.
+                        </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:attribute>
+                <xsd:attribute name="listName" type="xsd:string" use="optional">
+                    <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+                            The name of a list of codes.
+                        </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:attribute>
+                <xsd:attribute name="listVersionID" type="xsd:normalizedString" use="optional">
+                    <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+                            The version of the list of codes.
+                        </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:attribute>
+                <xsd:attribute name="name" type="xsd:string" use="optional">
+                    <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+                            The textual equivalent of the code content component.
+                        </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:attribute>
+                <xsd:attribute name="languageID" type="xsd:language" use="optional">
+                    <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+                            The identifier of the language used in the code name.
+                        </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:attribute>
+                <xsd:attribute name="listURI" type="xsd:anyURI" use="optional">
+                    <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+                            The Uniform Resource Identifier that identifies where the code list is located.
+                        </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:attribute>
+                <xsd:attribute name="listSchemeURI" type="xsd:anyURI" use="optional">
+                    <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+                            The Uniform Resource Identifier that identifies where the code list scheme is located.
+                        </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:attribute>
+            </xsd:extension>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+    <xsd:complexType name="TextType">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="en">
+                A character string (i.e. a finite set of characters) generally in the form of words of a language.
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:extension base="xsd:string">
+                <xsd:attribute name="languageID" type="xsd:language" use="optional">
+                    <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+                            The identifier of the language used in the content component.
+                        </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:attribute>
+                <xsd:attribute name="languageLocaleID" type="xsd:normalizedString" use="optional">
+                    <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+                            The identification of the locale of the language.
+                        </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:attribute>
+            </xsd:extension>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+    <xsd:complexType name="PeriodType">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="en">
+                A class to describe a period of time.
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="StartDate" type="DateType" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                        The date on which this period begins.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="EndDate" type="DateType" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                        The date on which this period ends.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="OrderReferenceType">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="en">
+                A class to define a reference to an Order.
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="ID" type="IdentifierType" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                        An identifier for this order reference, assigned by the buyer.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="SalesOrderID" type="IdentifierType" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                        An identifier for this order reference, assigned by the seller.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="DocumentReferenceType">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="en">
+                A class to define a reference to a document.
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="ID" type="IdentifierType" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                        An identifier for the referenced document.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="DocumentType" type="TextType" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                        The type of document being referenced, expressed as text.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="Attachment" type="AttachmentType" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                        The referenced document as an attachment to the document from which it is referenced.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="AttachmentType">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="en">
+                A class to describe an attached document. An attachment can refer to an external document or be included
+                with the document being exchanged.
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="EmbeddedDocumentBinaryObject" type="BinaryObjectType" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                        A binary large object containing an attached document.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="ExternalReference" type="ExternalReferenceType" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                        A reference to an attached document that is external to the document(s) being exchanged.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="BinaryObjectType">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="en">
+                A set of finite-length sequences of binary octets.
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:extension base="xsd:base64Binary">
+                <xsd:attribute name="format" type="xsd:string" use="optional">
+                    <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+                            The format of the binary content.
+                        </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:attribute>
+                <xsd:attribute name="mimeCode" type="xsd:normalizedString" use="required">
+                    <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+                            The mime type of the binary object.
+                        </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:attribute>
+                <xsd:attribute name="encodingCode" type="xsd:normalizedString" use="optional">
+                    <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+                            Specifies the decoding algorithm of the binary object.
+                        </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:attribute>
+                <xsd:attribute name="characterSetCode" type="xsd:normalizedString" use="optional">
+                    <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+                            The character set of the binary object if the mime type is text.
+                        </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:attribute>
+                <xsd:attribute name="uri" type="xsd:anyURI" use="optional">
+                    <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+                            The Uniform Resource Identifier that identifies where the binary object is located.
+                        </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:attribute>
+                <xsd:attribute name="filename" type="xsd:string" use="optional">
+                    <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+                            The filename of the binary object.
+                        </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:attribute>
+            </xsd:extension>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+    <xsd:complexType name="ExternalReferenceType">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="en">
+                A class to describe an external object, such as a document stored at a remote location.
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="URI" type="IdentifierType" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                        The Uniform Resource Identifier (URI) that identifies the external object as an Internet
+                        resource.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="SupplierPartyType">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="en">
+                A class to describe a supplier party.
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="Party" type="PartyType" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                        The supplier party itself.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="SellerContact" type="ContactType" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                        The primary contact for this supplier party.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="PartyType">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="en">
+                A class to describe an organization, sub-organization, or individual fulfilling a role in a business
+                process.
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="EndpointID" type="IdentifierType" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                        An identifier for the end point of the routing service (e.g., EAN Location Number, GLN).
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="PartyIdentification" type="PartyIdentificationType" minOccurs="0" maxOccurs="unbounded">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                        An identifier for this party.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="PartyName" type="PartyNameType" minOccurs="0" maxOccurs="unbounded">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                        A name for this party.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="PostalAddress" type="AddressType" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                        The party's postal address.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="PartyTaxScheme" type="PartyTaxSchemeType" minOccurs="0" maxOccurs="unbounded">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                        A tax scheme applying to this party.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="PartyLegalEntity" type="PartyLegalEntityType" minOccurs="0" maxOccurs="unbounded">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                        A description of this party as a legal entity.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="PartyIdentificationType">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="en">
+                A class to define an identifier for a party.
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="ID" type="IdentifierType" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                        An identifier for the party.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="PartyNameType">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="en">
+                A class for defining the name of a party.
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="Name" type="TextType" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                        The name of the party.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="AddressType">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="en">
+                A class to define common information related to an address.
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="CityName" type="TextType" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                        The name of a city, town, or village.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="PostalZone" type="TextType" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                        The postal identifier for this address according to the relevant national postal service, such
+                        as a ZIP code or Post Code.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="CountrySubentity" type="TextType" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                        The political or administrative division of a country in which this address is located, such as
+                        the name of its county, province, or state, expressed as text.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="AddressLine" type="AddressLineType" minOccurs="0" maxOccurs="unbounded">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                        An unstructured address line.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="Country" type="CountryType" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                        The country in which this address is situated.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="AddressLineType">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="en">
+                A class to define an unstructured address line.
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="Line" type="TextType" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                        An address line expressed as unstructured text.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="PartyTaxSchemeType">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="en">
+                A class to describe a taxation scheme applying to a party.
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="CompanyID" type="IdentifierType" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                        An identifier for the party assigned for tax purposes by the taxation authority.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="TaxLevelCode" type="CodeType" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                        A code signifying the tax level applicable to the party within this taxation scheme.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="TaxScheme" type="TaxSchemeType" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                        The taxation scheme applicable to the party.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="TaxSchemeType">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="en">
+                A class to describe a taxation scheme (e.g., VAT, State tax, County tax).
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="ID" type="IdentifierType" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                        An identifier for this taxation scheme.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="PartyLegalEntityType">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="en">
+                A class to describe a party as a legal entity.
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="RegistrationName" type="TextType" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                        The name of the party as registered with the relevant legal authority.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="CompanyID" type="IdentifierType" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                        An identifier for the party as registered within a company registration scheme.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="ContactType">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="en">
+                A class to describe a contactable person or department in an organization.
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="ID" type="IdentifierType" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                        An identifier for this contact.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="Telephone" type="TextType" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                        The primary telephone number of this contact.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="ElectronicMail" type="TextType" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                        The primary email address of this contact.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="CustomerPartyType">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="en">
+                A class to describe a customer party.
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="Party" type="PartyType" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                        The customer party itself.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="BuyerContact" type="ContactType" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                        A customer contact for purchasing.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="DeliveryType">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="en">
+                A class to describe a delivery.
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="ActualDeliveryDate" type="DateType" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                        The actual date of delivery.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="DeliveryAddress" type="AddressType" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                        The delivery address.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="DeliveryParty" type="PartyType" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                        The party to whom the goods are delivered.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="PaymentMeansType">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="en">
+                A class to describe a means of payment.
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="ID" type="IdentifierType" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                        An identifier for this means of payment.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="PaymentMeansCode" type="CodeType" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                        A code signifying the type of this means of payment.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="InstructionID" type="IdentifierType" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                        An identifier for the payment instruction.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="PayerFinancialAccount" type="FinancialAccountType" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                        The payer's financial account.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="PayeeFinancialAccount" type="FinancialAccountType" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                        The payee's financial account.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="FinancialAccountType">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="en">
+                A class to describe a financial account.
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="ID" type="IdentifierType" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                        The identifier for this financial account; the bank account number.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="FinancialInstitutionBranch" type="BranchType" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                        The branch of the financial institution associated with this financial account.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="BranchType">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="en">
+                A class to describe a branch or a division of an organization.
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="ID" type="IdentifierType" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                        An identifier for this branch or division of an organization.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="Name" type="TextType" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                        The name of this branch or division of an organization.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="AllowanceChargeType">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="en">
+                A class to describe information about a charge or discount as applied to a price component.
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="ChargeIndicator" type="IndicatorType" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                        An indicator that this AllowanceCharge describes a charge (true) or a discount (false).
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="AllowanceChargeReasonCode" type="CodeType" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                        A mutually agreed code signifying the reason for this allowance or charge.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="AllowanceChargeReason" type="TextType" minOccurs="0" maxOccurs="unbounded">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                        The reason for this allowance or charge.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="MultiplierFactorNumeric" type="NumericType" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                        A number by which the base amount is multiplied to calculate the actual amount of this allowance or charge.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="Amount" type="AmountType" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                        The monetary amount of this allowance or charge to be applied.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="BaseAmount" type="AmountType" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                        The monetary amount to which the multiplier factor is applied in calculating the amount of this allowance or charge.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="TaxCategory" type="TaxCategoryType" minOccurs="0" maxOccurs="unbounded">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                        A tax category applicable to this allowance or charge.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="TaxTotal" type="TaxTotalType" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                        The total of all the taxes applicable to this allowance or charge.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="IndicatorType">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="en">
+                A list of two mutually exclusive Boolean values that express the only possible states of a property.
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:extension base="xsd:boolean"/>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+    <xsd:complexType name="NumericType">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="en">
+                Numeric information that is assigned or is determined by calculation, counting, or sequencing. It does
+                not require a unit of quantity or unit of measure.
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:extension base="xsd:decimal">
+                <xsd:attribute name="format" type="xsd:string" use="optional">
+                    <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+                            Whether the number is an integer, decimal, real number or percentage.
+                        </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:attribute>
+            </xsd:extension>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+    <xsd:complexType name="AmountType">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="en">
+                A number of monetary units specified using a given unit of currency.
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:extension base="xsd:decimal">
+                <xsd:attribute name="currencyID" type="xsd:normalizedString" use="required">
+                    <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+                            The currency of the amount.
+                        </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:attribute>
+                <xsd:attribute name="currencyCodeListVersionID" type="xsd:normalizedString" use="optional">
+                    <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+                            The VersionID of the UN/ECE Rec9 code list.
+                        </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:attribute>
+            </xsd:extension>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+    <xsd:complexType name="TaxCategoryType">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="en">
+                A class to describe one of the tax categories within a taxation scheme (e.g., High Rate VAT, Low Rate VAT).
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="ID" type="IdentifierType" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                        An identifier for this tax category.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="Percent" type="NumericType" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                        The tax rate for this category, expressed as a percentage.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="TaxExemptionReason" type="TextType" minOccurs="0" maxOccurs="unbounded">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                        The reason for tax being exempted, expressed as text.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="TaxScheme" type="TaxSchemeType" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                        The taxation scheme within which this tax category is defined.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="TaxTotalType">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="en">
+                A class to describe the total tax for a particular taxation scheme.
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="TaxAmount" type="AmountType" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                        The total tax amount for a particular taxation scheme, e.g., VAT; the sum of the tax subtotals for each tax category within the taxation scheme.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="TaxSubtotal" type="TaxSubtotalType" minOccurs="0" maxOccurs="unbounded">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                        One of the subtotals the sum of which equals the total tax amount for a particular taxation scheme.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="TaxSubtotalType">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="en">
+                A class to define the subtotal for a particular tax category within a particular taxation scheme, such as standard rate within VAT.
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="TaxableAmount" type="AmountType" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                        The net amount to which the tax percent (rate) is applied to calculate the tax amount.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="TaxAmount" type="AmountType" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                        The amount of this tax subtotal.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="TaxCategory" type="TaxCategoryType" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                        The tax category applicable to this subtotal.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="MonetaryTotalType">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="en">
+                A class to define a monetary total.
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="LineExtensionAmount" type="AmountType" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                        The monetary amount of an extended transaction line, net of tax and settlement discounts, but inclusive of any applicable rounding amount.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="TaxExclusiveAmount" type="AmountType" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                        The monetary amount of an extended transaction line, exclusive of taxes.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="TaxInclusiveAmount" type="AmountType" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                        The monetary amount including taxes; the sum of payable amount and prepaid amount.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="AllowanceTotalAmount" type="AmountType" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                        The total monetary amount of all allowances.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="ChargeTotalAmount" type="AmountType" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                        The total monetary amount of all charges.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="PayableAmount" type="AmountType" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                        The amount of the monetary total to be paid.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="InvoiceLineType">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="en">
+                A class to define a line in an Invoice.
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="ID" type="IdentifierType" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                        An identifier for this invoice line.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="Note" type="TextType" minOccurs="0" maxOccurs="unbounded">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                        Free-form text conveying information that is not contained explicitly in other structures.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="InvoicedQuantity" type="QuantityType" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                        The quantity (of items) on this invoice line.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="LineExtensionAmount" type="AmountType" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                        The total amount for this invoice line, including allowance charges but net of taxes.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="AccountingCost" type="TextType" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                        The buyer's accounting cost centre for this invoice line, expressed as text.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="InvoicePeriod" type="PeriodType" minOccurs="0" maxOccurs="unbounded">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                        An invoice period to which this invoice line applies.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="DocumentReference" type="DocumentReferenceType" minOccurs="0" maxOccurs="unbounded">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                        A reference to a document associated with this invoice line.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="AllowanceCharge" type="AllowanceChargeType" minOccurs="0" maxOccurs="unbounded">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                        An allowance or charge associated with this invoice line.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="TaxTotal" type="TaxTotalType" minOccurs="0" maxOccurs="unbounded">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                        A total amount of taxes of a particular kind applicable to this invoice line.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="Item" type="ItemType" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                        The item associated with this invoice line.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="Price" type="PriceType" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                        The price of the item associated with this invoice line.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="QuantityType">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="en">
+                A counted number of non-monetary units possibly including fractions.
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+            <xsd:extension base="xsd:decimal">
+                <xsd:attribute name="unitCode" type="xsd:normalizedString" use="optional">
+                    <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+                            The unit of the quantity
+                        </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:attribute>
+                <xsd:attribute name="unitCodeListID" type="xsd:normalizedString" use="optional">
+                    <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+                            The quantity unit code list.
+                        </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:attribute>
+                <xsd:attribute name="unitCodeListAgencyID" type="xsd:normalizedString" use="optional">
+                    <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+                            The identification of the agency that maintains the quantity unit code list
+                        </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:attribute>
+                <xsd:attribute name="unitCodeListAgencyName" type="xsd:string" use="optional">
+                    <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+                            The name of the agency which maintains the quantity unit code list.
+                        </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:attribute>
+            </xsd:extension>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+    <xsd:complexType name="ItemType">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="en">
+                A class to describe an item of trade. It includes a generic description applicable to all examples of the item together with optional subsidiary descriptions of any number of actual instances of the type.
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="Description" type="TextType" minOccurs="0" maxOccurs="unbounded">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                        Text describing this item.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="Name" type="TextType" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                        A short name optionally given to this item, such as a name from a catalogue, as distinct from a description.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="AdditionalInformation" type="TextType" minOccurs="0" maxOccurs="unbounded">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                        Further details regarding this item (e.g., the URL of a relevant web page).
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="SellersItemIdentification" type="ItemIdentificationType" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                        Identifying information for this item, assigned by the seller.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="StandardItemIdentification" type="ItemIdentificationType" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                        Identifying information for this item, assigned according to a standard system.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="CommodityClassification" type="CommodityClassificationType"
+                         minOccurs="0"
+                         maxOccurs="unbounded">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                        A classification of this item according to a specific system for classifying commodities.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="AdditionalItemProperty" type="ItemPropertyType"
+                         minOccurs="0"
+                         maxOccurs="unbounded">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                        An additional property of this item.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="ItemIdentificationType">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="en">
+                A class for assigning identifying information to an item.
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="ID" type="IdentifierType" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                        An identifier for the item.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="CommodityClassificationType">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="en">
+                A class to describe the classification of a commodity.
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="ItemClassificationCode" type="CodeType" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                        A code signifying the trade classification of the commodity.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="ItemPropertyType">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="en">
+                A class to describe a specific property of an item.
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="Name" type="TextType" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                        The name of this item property.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="Value" type="TextType" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                        The value of this item property, expressed as text.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="PriceType">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="en">
+                A class to describe a price, expressed in a data structure containing multiple properties (compare with UnstructuredPrice).
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="PriceAmount" type="AmountType" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                        The amount of the price.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="BaseQuantity" type="QuantityType" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                        The quantity at which this price applies.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="CountryType">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="en">
+                A class to describe a country.
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="IdentificationCode" type="CodeType" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                        A code signifying this country.
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+</xsd:schema>
+        <!-- ===== Copyright Notice ===== --><!--
+  Copyright DBC
+  
+  Portions copyright OASIS-Open 2016
+-->

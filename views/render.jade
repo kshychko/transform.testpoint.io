@@ -1,0 +1,6 @@
+extends layout
+
+block content
+  h1= title
+  a(href="#{locals.pathToFile}") Download
+  pre !{locals.result}
