@@ -60,6 +60,25 @@
   },
   {
     "type": "path",
+    "attributeValueName": "schemeName",
+    "isIdentifier": true,
+    "keepIdentifier": true,
+    "childElement": "id",
+    "path": [
+      "financialInstitutionBranch"
+    ],
+    "lists":
+    {
+      "values": {
+        "BSB": "BSB"
+      },
+      "currentList": {
+      },
+      "deprecatedLists": []
+    }
+  },
+  {
+    "type": "path",
     "attributeValueName": "value",
     "path": [
       "documentCurrencyCode",
@@ -71,6 +90,7 @@
       "sourceCurrencyCode",
       "currencyCode"
     ],
+    "contexts":["urn:resources.digitalbusinesscouncil.com.au:dbc:einvoicing:process:einvoicing03:ver1.0"],
     "lists":
     {
       "values": {
@@ -98,6 +118,47 @@
         }
       ]
     }
+  },{
+    "type": "path",
+    "attributeValueName": "value",
+    "path": [
+      "documentCurrencyCode",
+      "taxCurrencyCode",
+      "pricingCurrencyCode",
+      "paymentCurrencyCode",
+      "paymentAlternativeCurrencyCode",
+      "requestedInvoiceCurrencyCode",
+      "sourceCurrencyCode",
+      "currencyCode"
+    ],
+    "contexts":["urn:resources.digitalbusinesscouncil.com.au:dbc:einvoicing:process:einvoicing01:ver1.0"],
+    "lists":
+    {
+      "values": {
+        "AUD": "Australian Dollar"
+      },
+      "currentList": {
+        "listID": "ISO 4217 Alpha",
+        "listAgencyID": "6",
+        "listAgencyName": "International Organization for Standardization",
+        "listName": "Currency",
+        "listVersionID": "2001",
+        "name": "CurrencyCode",
+        "languageID": "en",
+        "listURI": "http://docs.oasis-open.org/ubl/os-UBL-2.0-update/cl/gc/cefact/CurrencyCode-2.0.gc",
+        "listSchemeURI": "urn:un:unece:uncefact:codelist:specification:54217"
+      },
+      "deprecatedLists": [
+        {
+          "listAgencyID": "5",
+          "listAgencyName": "United Nations Economic Commission for Europe",
+          "listName": "Currency Code",
+          "listVersionID": "2012-01-12",
+          "listURI": "http://docs.oasis-open.org/ubl/os-UBL-2.1/cl/gc/default/CurrencyCode-2.1.gc",
+          "listSchemeURI": "urn:un:unece:uncefact:codelist:standard:5:ISO42173A"
+        }
+      ]
+    }
   },
   {
     "type": "path",
@@ -114,6 +175,22 @@
           },
         "deprecatedLists": []
       }
+  },
+  {
+    "type": "path",
+    "attributeValueName": "value",
+    "path": [
+      "profileID",
+      "customizationID"
+    ],
+    "lists":
+    {
+      "values": null,
+      "currentList": {
+        "schemeAgencyID":"dbc"
+      },
+      "deprecatedLists": []
+    }
   },
   {
     "type": "path",

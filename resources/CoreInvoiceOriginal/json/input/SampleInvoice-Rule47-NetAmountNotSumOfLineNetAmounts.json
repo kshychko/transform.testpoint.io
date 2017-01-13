@@ -1,14 +1,8 @@
 {
     "Invoice": {
         "ublVersionID": "2.1",
-        "customizationID": {
-            "schemeAgencyID": "dbc",
-            "value": "urn:resources.digitalbusinesscouncil.com.au:dbc:invoicing:documents:core invoice:xsd::core invoice 1##urn:resources.digitalbusinesscouncil.com.au:dbc:einvoicing:process:einvoicing01:ver1.0"
-        },
-        "profileID": {
-            "schemeAgencyID": "dbc",
-            "value": "urn:resources.digitalbusinesscouncil.com.au:dbc:einvoicing:ver1.0"
-        },
+        "customizationID": "urn:resources.digitalbusinesscouncil.com.au:dbc:invoicing:documents:core invoice:xsd::core invoice 1##urn:resources.digitalbusinesscouncil.com.au:dbc:einvoicing:process:einvoicing01:ver1.0",
+        "profileID": "urn:resources.digitalbusinesscouncil.com.au:dbc:einvoicing:ver1.0",
         "id": "TOSL-108-A",
         "issueDate": "2016-07-01",
         "dueDate": "2016-08-01",
@@ -16,11 +10,7 @@
         "note": [
             "Tax Invoice - Invoice Net Amount not Sum of Line Net Amounts"
         ],
-        "documentCurrencyCode": {
-            "listID": "ISO 4217 Alpha",
-            "listAgencyID": "6",
-            "value": "AUD"
-        },
+        "documentCurrencyCode": "AUD",
         "buyerReference": "CC-3352626",
         "orderReference": "SB002",
         "accountingSupplierParty": {
@@ -117,8 +107,7 @@
                     "id": "2000987211",
                     "financialInstitutionBranch": {
                         "id": {
-                            "schemeName": "BSB",
-                            "value": "086016"
+                            "BSB": "086016"
                         },
                         "name": "NAB Adelaide"
                     }
@@ -127,15 +116,15 @@
         ],
         "taxTotal": [
             {
-                "taxAmount": "250.00"
+                "taxAmount": 250
             }
         ],
         "legalMonetaryTotal": {
-            "lineExtensionAmount": "5000.00",
-            "taxExclusiveAmount": "5500.00",
-            "taxInclusiveAmount": "5750.00",
-            "chargeTotalAmount": "500.00",
-            "payableAmount": "5750.00"
+            "lineExtensionAmount": 5000,
+            "taxExclusiveAmount": 5500,
+            "taxInclusiveAmount": 5750,
+            "chargeTotalAmount": 500,
+            "payableAmount": 5750
         },
         "invoiceLine": [
             {
@@ -143,14 +132,16 @@
                 "note": [
                     "A variety of Widgets"
                 ],
-                "invoicedQuantity": 200,
-                "lineExtensionAmount": "2000.00",
+                "invoicedQuantity": {
+                    "value": 200
+                },
+                "lineExtensionAmount": 2000,
                 "taxTotal": [
                     {
-                        "taxAmount": "200.00",
+                        "taxAmount": 200,
                         "taxSubtotal": [
                             {
-                                "taxAmount": "10.00",
+                                "taxAmount": 10,
                                 "taxCategory": {
                                     "taxScheme": "GST"
                                 }
@@ -168,8 +159,10 @@
                     }
                 },
                 "price": {
-                    "priceAmount": "10.00",
-                    "baseQuantity": 1
+                    "priceAmount": 10,
+                    "baseQuantity": {
+                        "value": 1
+                    }
                 }
             },
             {
@@ -177,14 +170,16 @@
                 "note": [
                     "Widget attachments"
                 ],
-                "invoicedQuantity": 200,
-                "lineExtensionAmount": "500.00",
+                "invoicedQuantity": {
+                    "value": 200
+                },
+                "lineExtensionAmount": 500,
                 "taxTotal": [
                     {
-                        "taxAmount": "50.00",
+                        "taxAmount": 50,
                         "taxSubtotal": [
                             {
-                                "taxAmount": "10.00",
+                                "taxAmount": 10,
                                 "taxCategory": {
                                     "taxScheme": "GST"
                                 }
@@ -202,8 +197,10 @@
                     }
                 },
                 "price": {
-                    "priceAmount": "2.50",
-                    "baseQuantity": 1
+                    "priceAmount": 2.5,
+                    "baseQuantity": {
+                        "value": 1
+                    }
                 }
             }
         ]

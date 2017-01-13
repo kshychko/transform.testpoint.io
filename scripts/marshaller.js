@@ -25,7 +25,7 @@ function marshaller(baseDir) {
     console.log(fs.readFileSync("./resources/rules.json"))
 }
 
-marshaller.prototype.marshall = function marshall(filename, callback, forceSimplify) {
+marshaller.prototype.marshall = function marshall(filename, callback) {
     console.log(filename);
 
     try{
@@ -44,6 +44,19 @@ marshaller.prototype.marshall = function marshall(filename, callback, forceSimpl
 
     var marshalled = this.Marshaller.marshalString(po);
     callback(marshalled);
+
+};
+
+marshaller.prototype.marshalString = function marshall(poString) {
+    var po = JSON.parse(poString);
+    for (j in po) {
+        po["n2:" + j] = po[j];
+        delete po[j];
+    }
+
+    complify(po);
+
+    return this.Marshaller.marshalString(po);
 
 };
 function complify(o) {

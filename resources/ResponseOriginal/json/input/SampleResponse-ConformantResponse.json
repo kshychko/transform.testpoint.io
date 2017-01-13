@@ -1,35 +1,22 @@
 {
-    "n2:ApplicationResponse": {
+    "ApplicationResponse": {
         "ublVersionID": "2.1",
-        "customizationID": {
-            "schemeAgencyID": "dbc",
-            "value": "urn:resources.digitalbusinesscouncil.com.au:dbc:invoicing:documents:response:xsd::response 1##urn:resources.digitalbusinesscouncil.com.au:dbc:einvoicing:process:einvoicing04:ver1.0"
-        },
-        "profileID": {
-            "schemeAgencyID": "dbc",
-            "value": "urn:resources.digitalbusinesscouncil.com.au:dbc:einvoicing:ver1.0"
-        },
+        "customizationID": "urn:resources.digitalbusinesscouncil.com.au:dbc:invoicing:documents:response:xsd::response 1##urn:resources.digitalbusinesscouncil.com.au:dbc:einvoicing:process:einvoicing04:ver1.0",
+        "profileID": "urn:resources.digitalbusinesscouncil.com.au:dbc:einvoicing:ver1.0",
         "id": "RESP-0201991",
         "issueDate": "2016-05-01",
         "issueTime": "09:30:47+05:00",
         "senderParty": {
             "partyIdentification": [
                 {
-                    "id": {
-                        "schemeID": "urn:oasis:names:tc:ebcore:partyid-type:iso6523:0151",
-                        "value": "51083392303"
-                    }
+                    "ABN": "51083392303"
                 }
             ]
         },
         "receiverParty": {
             "partyIdentification": [
                 {
-                    "id": {
-                        "schemeID": "urn:oasis:names:tc:ebcore:partyid-type:iso6523:088",
-                        "schemeAgencyID": "GS1",
-                        "value": "4035811611014"
-                    }
+                    "GLN": "4035811611014"
                 }
             ]
         },

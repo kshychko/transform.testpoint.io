@@ -26,6 +26,9 @@ var jsonix = require('jsonix').Jsonix;
  }
  };*/
 var basedir = '../resources/CoreInvoiceOriginal/';
+/*
+var basedir = '../resources/ResponseOriginal/';
+*/
 var namespacePrefixes = {
     namespacePrefixes: {}/*,    mappingStyle : 'simplified'*/
 };
@@ -39,7 +42,6 @@ var schemeIDs = JSON.parse(fs.readFileSync("../resources/rules.json").toString()
 
 var forceSimplify = true;
 
-
 fs.readdir(basedir + "xml/input/", function (err, items) {
     async.eachSeries(items, function (prime, callback) {
         console.log(prime);
@@ -52,8 +54,8 @@ fs.readdir(basedir + "xml/input/", function (err, items) {
                 delete myElement.value;
 
                 cleanup(myElement);
-
-                simplify(myElement);
+                for(i in myElement)
+                simplify(myElement, myElement[i].customizationID.value);
 
                 console.log(filename);
                 var file = basedir + '/xml/output/' + filename + '.json';
@@ -111,7 +113,7 @@ function cleanup(o) {
 }
 
 
-function simplify(o) {
+function simplify(o, profileID) {
 
     for (i in o) {
 
@@ -123,9 +125,21 @@ function simplify(o) {
             for (k in obj) {
                 if (!!obj[k] && typeof(obj[k]) == "object") {
                     var obj2 = obj[k];
+
                     if (obj2.hasOwnProperty('value')) {
+                        var skipList = ["baseQuantity", "invoicedQuantity"];//TODO: move to configuration
+
+                        var skipFound = false;
+                        for (skip in skipList){
+                            if (skipList[skip] == k){
+                                skipFound = true;
+                            }
+                        }
+
                         // no attributes, only value
-                        if (Object.keys(obj[k]).length < 2) {
+                        if (!skipFound && Object.keys(obj[k]).length < 2) {
+                            /*console.log(k, obj[k], obj2.value)*/
+
                             obj[k] = obj2.value
                         }
                     }
@@ -141,8 +155,20 @@ function simplify(o) {
 
             for (it in schemeIDs) {
 
+                var contexts = schemeIDs[it].contexts;
+                var contextMatch = false;
+                if(contexts) {
+                    for(context in contexts){
+                        if(profileID.indexOf(contexts[context])!=-1){
+                            contextMatch = true;
+                            break;
+                        }
+                    }
+
+                } else contextMatch = true;
                 var type = schemeIDs[it].type;
                 var isIdentifier = schemeIDs[it].isIdentifier;
+                var keepIdentifier = schemeIDs[it].keepIdentifier;
                 var childElement = schemeIDs[it].childElement;
                 var valueProperty = schemeIDs[it].attributeValueName;
                 var pathMatchFound = false;
@@ -202,24 +228,33 @@ function simplify(o) {
                             }
                         } else {
                             /*if(childElement){
-                                console.log(o[i][childElement])
+                                console.log(i, o[i][childElement])
                             }*/
+
                             if (o[i]["id"]) {
                                 var key = schemeIDs[it]["lists"]["values"][o[i]["id"][valueProperty]];
                                 var value = o[i]["id"]["value"];
-                                delete o[i]["id"];
+                                console.log(i, key, value, o[i])
+
+                                if(!keepIdentifier){
+                                    delete o[i]["id"];
+                                    o[i][key] = value;
+                                } else {
+                                    o[i]["id"] ={ };
+                                    o[i]["id"][key] = value;
+                                }
                             } else {
                                 var key = schemeIDs[it]["lists"]["values"][o[i][valueProperty]];
                                 var value = o[i]["value"];
+                                o[i] = {};
+                                o[i][key] = value;
                             }
-
-                            console.log(i, key, value)
-                            o[i] = {};
-                            o[i][key] = value;
-
                         }
                     } else {
                         if(childElement){
+/*
+                            console.log(i, childElement, valueProperty, o[i])
+*/
                             o[i] = o[i][childElement][valueProperty];
                         } else {
                             o[i] = o[i][valueProperty];
@@ -228,7 +263,7 @@ function simplify(o) {
                     }
                 }
             }
-            simplify(o[i]);
+            simplify(o[i], profileID);
         }
     }
 }

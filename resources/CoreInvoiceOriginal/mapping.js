@@ -80,7 +80,7 @@ var mapping_Module_Factory = function () {
             },
             propertyInfos: [{
                 name: 'value',
-                typeInfo: 'Decimal',
+                typeInfo: 'Decimal2',
                 type: 'value'
             }, {
                 name: 'currencyID',
@@ -4095,9 +4095,7 @@ var mapping_Module_Factory = function () {
             },
             propertyInfos: [{
                 name: 'value',
-/*
-                typeInfo: 'Decimal',
-*/
+                typeInfo: 'Decimal2',
                 type: 'value'
             }, {
                 name: 'currencyID',
