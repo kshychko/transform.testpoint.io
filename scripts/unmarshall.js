@@ -10,7 +10,7 @@ var Ajv = require('ajv');
 var pd = require('pretty-data').pd;
 pd.step = "    ";
 
-var jsonix = require('jsonix').Jsonix;
+var jsonix = require('./jsonix').Jsonix;
 
 /*
  var basedir = '../resources/ResponseOriginal/';
