@@ -49,22 +49,37 @@ fs.readdir(basedir + "json/input/", function (err, items) {
         var filename = items[i].substr(0, items[i].lastIndexOf('.'));
         try {
             var po = JSON.parse(fs.readFileSync(basedir + "json/input/" + filename + ".json").toString());
-        }catch (e){
+        } catch (e) {
             alert(e);
         }
         for (j in po) {
             po["n2:" + j] = po[j];
             delete po[j];
         }
-
+        addCurrencyID(po);
         complify(po);
-        console.log(filename);
-        console.log(JSON.stringify(po));
+        /*        console.log(filename);
+         console.log(JSON.stringify(po));*/
         var marshalled = marshaller.marshalString(po);
         fs.writeFileSync(basedir + "json/output/" + filename + ".xml", pd.xml(marshalled), 'utf8');
     }
 });
 
+
+function addCurrencyID(o) {
+    for (i in o) {
+        console.log(i, typeof(o[i]))
+        if (!!o[i] && typeof(o[i]) == "object") {
+            addCurrencyID(o[i])
+        } else if (!!o[i] && typeof(o[i]) == "number") {
+            var obj = o[i];
+            if (i.indexOf("Amount") != -1) {
+                o[i] = {"value": obj, "currencyID": "AUD"};
+            }
+            else addCurrencyID(o[i])
+        }
+    }
+}
 
 function complify(o) {
 
@@ -87,7 +102,7 @@ function complify(o) {
                                 var copy = o[i][index];
                                 delete o[i][index];
                                 var valueAttributeName = schemeIDs[it].attributeValueName;
-                                if(Array.isArray(copy)){
+                                if (Array.isArray(copy)) {
                                     o[i][index] = [];
                                 } else {
                                     o[i][index] = {};
@@ -98,9 +113,9 @@ function complify(o) {
                                         for (l in schemeIDs[it]["lists"]["values"]) {
                                             var code = schemeIDs[it]["lists"]["values"][l]
 
-                                            if(Array.isArray(copy)){
-                                                for(m in copy){
-                                                    if(copy[m].hasOwnProperty(code)) {
+                                            if (Array.isArray(copy)) {
+                                                for (m in copy) {
+                                                    if (copy[m].hasOwnProperty(code)) {
                                                         o[i][index][m] = {}
                                                         o[i][index][m][childElement] = {}
                                                         o[i][index][m][childElement][valueAttributeName] = l;
@@ -113,7 +128,7 @@ function complify(o) {
                                                 }
                                             } else {
                                                 o[i][index][childElement] = {}
-                                                if(copy.hasOwnProperty(code)) {
+                                                if (copy.hasOwnProperty(code)) {
                                                     o[i][index][childElement][valueAttributeName] = l;
                                                     o[i][index][childElement]["value"] = copy[code];
                                                     for (k in schemeIDs[it].lists.currentList) {
@@ -131,7 +146,7 @@ function complify(o) {
                                         }
                                     }
                                 } else {
-                                    if(isIdentifier) {
+                                    if (isIdentifier) {
                                         if (schemeIDs[it]["lists"]["values"] == null) {
                                             o[i][index][valueProperty] = copy;
                                         } else {
@@ -179,7 +194,7 @@ function complify(o) {
                                                             }
                                                         }
                                                     }
-                                                } else if(typeof(copy) == "string"){
+                                                } else if (typeof(copy) == "string") {
                                                     o[i][index] = {}
                                                     o[i][index][valueAttributeName] = copy;
                                                     for (k in schemeIDs[it].lists.currentList) {

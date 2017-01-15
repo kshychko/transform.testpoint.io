@@ -4537,7 +4537,6 @@ Jsonix.Schema.XSD.Decimal.INSTANCE.LIST = new Jsonix.Schema.XSD.List(Jsonix.Sche
         fix : 2,
         typeName : Jsonix.Schema.XSD.qname('decimal'),
         print : function(value, context, output, scope) {
-            console.log(value);
             Jsonix.Util.Ensure.ensureNumber(value);
             var text = String(Number(value).toFixed(this.fix));
             return text;

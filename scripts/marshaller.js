@@ -40,6 +40,8 @@ marshaller.prototype.marshall = function marshall(filename, callback) {
         delete po[j];
     }
 
+    addCurrencyID(po);
+
     complify(po);
 
     var marshalled = this.Marshaller.marshalString(po);
@@ -193,5 +195,21 @@ function complify(o) {
         }
     }
 }
+
+function addCurrencyID(o) {
+    for (i in o) {
+        console.log(i, typeof(o[i]))
+        if (!!o[i] && typeof(o[i]) == "object") {
+            addCurrencyID(o[i])
+        } else if (!!o[i] && typeof(o[i]) == "number") {
+            var obj = o[i];
+            if (i.indexOf("Amount") != -1) {
+                o[i] = {"value": obj, "currencyID": "AUD"};
+            }
+            else addCurrencyID(o[i])
+        }
+    }
+}
+
 
 module.exports = marshaller;
