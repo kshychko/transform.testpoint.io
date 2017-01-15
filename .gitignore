@@ -28,7 +28,6 @@ coverage
 build/Release
 
 # Dependency directories
-node_modules
 jspm_packages
 
 # Optional npm cache directory
@@ -45,3 +44,8 @@ jspm_packages
 
 # Yarn Integrity file
 .yarn-integrity
+
+# un-ignore jsonix is it has been customised
+!node_modules/
+node_modules/*
+!node_modules/jsonix/

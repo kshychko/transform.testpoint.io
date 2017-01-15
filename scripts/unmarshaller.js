@@ -4,7 +4,7 @@
 var fs = require('fs');
 var pd = require('pretty-data').pd;
 pd.step = "    ";
-var jsonix = require('./jsonix').Jsonix;
+var jsonix = require('jsonix').Jsonix;
 var schemeIDs = JSON.parse(fs.readFileSync("./resources/rules.json").toString());
 
 function unmarshaller(baseDir) {
