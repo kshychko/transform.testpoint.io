@@ -9,7 +9,7 @@
 	<cbc:DueDate>2016-08-01</cbc:DueDate>
 	<cbc:InvoiceTypeCode listName="Document Type Code" listAgencyID="6">388</cbc:InvoiceTypeCode>
 	<cbc:Note>Tax Invoice - Invoice Line Price MUST be greater than 0</cbc:Note>
-	<cbc:DocumentCurrencyCode listID="ISO 4217 Alpha" listAgencyID="6">AUD</cbc:DocumentCurrencyCode>
+	<cbc:DocumentCurrencyCode listID="ISO 4217 Alpha" listAgencyID="5">AUD</cbc:DocumentCurrencyCode>
 	<cbc:BuyerReference>CC-3352626</cbc:BuyerReference>
 	<cac:InvoicePeriod>
 		<cbc:StartDate>2016-05-01</cbc:StartDate>

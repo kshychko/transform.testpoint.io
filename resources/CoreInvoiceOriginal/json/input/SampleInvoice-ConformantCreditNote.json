@@ -10,6 +10,7 @@
         "note": [
             "Credit Note"
         ],
+        "documentCurrencyCode": "AUD",
         "buyerReference": "CC-3352626",
         "invoicePeriod": [
             {

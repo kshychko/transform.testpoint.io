@@ -7,6 +7,7 @@
         "issueDate": "2016-07-01",
         "dueDate": "2016-08-01",
         "invoiceTypeCode": "TAX INVOICE",
+        "documentCurrencyCode": "AUD",
         "buyerReference": "CC-3352626",
         "invoicePeriod": [
             {
