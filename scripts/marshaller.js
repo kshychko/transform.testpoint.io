@@ -10,19 +10,29 @@ var schemeIDs = JSON.parse(fs.readFileSync("./resources/rules.json").toString())
 
 function marshaller(baseDir) {
     this.baseDir = baseDir;
-    this.namespacePrefixes = {
-        namespacePrefixes: {
-            "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2": "n2",
-            "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2": "cbc",
-            "urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2": "cac"
-        }/*,    mappingStyle : 'simplified'*/
-    };
+
+    if(baseDir == '../resources/CoreInvoiceOriginal/'){
+        this.namespacePrefixes = {
+            namespacePrefixes: {
+                "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2": "n2",
+                "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2": "cbc",
+                "urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2": "cac"
+            }
+        };
+    } else if (baseDir == '../resources/ResponseOriginal/'){
+        this.namespacePrefixes = {
+            namespacePrefixes: {
+                "urn:oasis:names:specification:ubl:schema:xsd:ApplicationResponse-2": "n2",
+                "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2": "cbc",
+                "urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2": "cac"
+            }
+        };
+    }
+
 
     var mapping = require(this.baseDir + 'mapping').mapping;
     var context = new jsonix.Context([mapping], this.namespacePrefixes);
     this.Marshaller = context.createMarshaller();
-
-    console.log(fs.readFileSync("./resources/rules.json"))
 }
 
 marshaller.prototype.marshall = function marshall(filename, callback) {
@@ -56,6 +66,7 @@ marshaller.prototype.marshalString = function marshall(poString) {
         delete po[j];
     }
 
+    addCurrencyID(po);
     complify(po);
 
     return this.Marshaller.marshalString(po);
@@ -198,7 +209,7 @@ function complify(o) {
 
 function addCurrencyID(o) {
     for (i in o) {
-        console.log(i, typeof(o[i]))
+        /*console.log(i, typeof(o[i]))*/
         if (!!o[i] && typeof(o[i]) == "object") {
             addCurrencyID(o[i])
         } else if (!!o[i] && typeof(o[i]) == "number") {

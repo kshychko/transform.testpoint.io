@@ -49,3 +49,8 @@ jspm_packages
 !node_modules/
 node_modules/*
 !node_modules/jsonix/
+
+resources/CoreInvoiceOriginal/xml/output/*
+resources/ResponseOriginal/xml/output/*
+resources/CoreInvoiceOriginal/json/output/*
+resources/ResponseOriginal/json/output/*

@@ -16,8 +16,6 @@ function unmarshaller(baseDir) {
     var mapping = require(this.baseDir + 'mapping').mapping;
     var context = new jsonix.Context([mapping], this.namespacePrefixes);
     this.unmarshaller = context.createUnmarshaller();
-
-    console.log(fs.readFileSync("./resources/rules.json"))
 }
 
 unmarshaller.prototype.unmarshall = function unmarshall(filename, callback) {
@@ -48,7 +46,6 @@ unmarshaller.prototype.unmarshall = function unmarshall(filename, callback) {
 };
 
 unmarshaller.prototype.unmarshalString = function unmarshalString(document) {
-    console.log(document)
     var myElement = this.unmarshaller.unmarshalString(document);
     var root = myElement.name.localPart;
     myElement[root] = myElement.value;
@@ -166,6 +163,9 @@ function simplify(o, profileID) {
                     }
 
                 } else contextMatch = true;
+
+                if(!contextMatch)
+                    continue;
                 var type = schemeIDs[it].type;
                 var isIdentifier = schemeIDs[it].isIdentifier;
                 var keepIdentifier = schemeIDs[it].keepIdentifier;

@@ -44,7 +44,6 @@ var forceSimplify = true;
 
 fs.readdir(basedir + "xml/input/", function (err, items) {
     async.eachSeries(items, function (prime, callback) {
-        console.log(prime);
         var filename = prime.substr(0, prime.lastIndexOf('.'));
         var unmarshalled = unmarshaller.unmarshalFile(basedir + '/xml/input/' + filename + '.xml',
             function (myElement) {
@@ -166,6 +165,9 @@ function simplify(o, profileID) {
                     }
 
                 } else contextMatch = true;
+
+                if(!contextMatch)
+                    continue;
                 var type = schemeIDs[it].type;
                 var isIdentifier = schemeIDs[it].isIdentifier;
                 var keepIdentifier = schemeIDs[it].keepIdentifier;
