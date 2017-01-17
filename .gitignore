@@ -54,3 +54,4 @@ resources/CoreInvoiceOriginal/xml/output/*
 resources/ResponseOriginal/xml/output/*
 resources/CoreInvoiceOriginal/json/output/*
 resources/ResponseOriginal/json/output/*
+files/*
